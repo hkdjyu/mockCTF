@@ -3,13 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web-10 多步轉換壓軸題</title>
+  <title>Web-10 終極偵測題</title>
 </head>
 <body>
-  <h2>🏁 Final Decode</h2>
-  <p>完成多步解碼，取得最終旗標。</p>
+  <h2>🏁 終極偵測挑戰</h2>
+  <p id="hint">讀取中...</p>
 
-  <!-- order hint: Base64 -> Hex -->
-  <!-- token: NjY2YzYxNjc3YjZkNzU2Yzc0Njk1ZjczNzQ2NTcwNWY2NDY1NjM2ZjY0NjU1ZjZkNjE3Mzc0NjU3Mjdk -->
+  <script>
+    // 從 localStorage 取第一段
+    localStorage.setItem('flag_part1', 'flag{');
+    localStorage.setItem('theme', 'dark');
+    localStorage.setItem('lang', 'zh');
+
+    // 從 sessionStorage 取最後一段
+    sessionStorage.setItem('flag_part4', 'ultimate_dev_detective}');
+
+    // 發起 fetch 取第二、三段
+    fetch('/api/hint.php')
+      .then(res => res.json())
+      .then(data => {
+        // part2, part3 隱藏在 data.debug_xyz 欄位
+        document.getElementById('hint').textContent = `Status: ${data.status}`;
+      });
+
+    console.log('[HINT] Check Storage tabs for fragments');
+  </script>
 </body>
 </html>
