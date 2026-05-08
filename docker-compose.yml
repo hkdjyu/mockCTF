@@ -1,0 +1,60 @@
+services:
+  web01:
+    build: ./Web-01
+    ports:
+      - "8001:80"
+    restart: always
+
+  web02:
+    build: ./Web-02
+    ports:
+      - "8002:80"
+    restart: always
+
+  web03:
+    build: ./Web-03
+    ports:
+      - "8003:80"
+    restart: always
+
+  web04:
+    build: ./Web-04
+    ports:
+      - "8004:80"
+    restart: always
+
+  web05:
+    build: ./Web-05
+    ports:
+      - "8005:80"
+    restart: always
+
+  web06:
+    build: ./Web-06
+    ports:
+      - "8006:80"
+    restart: always
+
+  web07:
+    build: ./Web-07
+    ports:
+      - "8007:80"
+    restart: always
+
+  web08:
+    build: ./Web-08
+    ports:
+      - "8008:80"
+    restart: always
+
+  web09:
+    build: ./Web-09
+    ports:
+      - "8009:80"
+    restart: always
+
+  web10:
+    build: ./Web-10
+    ports:
+      - "8010:80"
+    restart: always
