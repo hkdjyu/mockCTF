@@ -18,9 +18,10 @@ echo [3] 重啟 CTF
 echo [4] 查看狀態 (ps)
 echo [5] 查看 logs
 echo [6] 停止並刪除映像檔 (down --rmi all)
+echo [7] 停止並刪除指定服務映像檔
 echo [0] 離開
 echo.
-set /p CHOICE=請輸入選項 (0-6): 
+set /p CHOICE=請輸入選項 (0-7): 
 
 if "%CHOICE%"=="1" set "ACTION=start"
 if "%CHOICE%"=="2" set "ACTION=stop"
@@ -28,6 +29,7 @@ if "%CHOICE%"=="3" set "ACTION=restart"
 if "%CHOICE%"=="4" set "ACTION=status"
 if "%CHOICE%"=="5" set "ACTION=logs"
 if "%CHOICE%"=="6" set "ACTION=clean"
+if "%CHOICE%"=="7" set "ACTION=cleanone"
 if "%CHOICE%"=="0" set "ACTION=exit"
 
 if not defined ACTION (
@@ -42,6 +44,7 @@ if /I "%ACTION%"=="restart" goto :restart
 if /I "%ACTION%"=="status" goto :status
 if /I "%ACTION%"=="logs" goto :logs
 if /I "%ACTION%"=="clean" goto :clean
+if /I "%ACTION%"=="cleanone" goto :cleanone
 if /I "%ACTION%"=="help" goto :help
 if /I "%ACTION%"=="exit" goto :eof
 
@@ -87,6 +90,39 @@ echo [WARN] 將停止容器並刪除映像檔...
 docker compose down --rmi all
 goto :eof
 
+:cleanone
+set "SERVICE=%~2"
+if "%SERVICE%"=="" (
+  set /p SERVICE=輸入服務名稱 (例如 web27): 
+)
+if "%SERVICE%"=="" (
+  echo [ERROR] 未提供服務名稱。
+  goto :eof
+)
+
+set "CONTAINER_ID="
+set "IMAGE_ID="
+
+for /f "delims=" %%I in ('docker compose ps -a -q %SERVICE% 2^>nul') do set "CONTAINER_ID=%%I"
+
+if defined CONTAINER_ID (
+  for /f "delims=" %%I in ('docker inspect -f "{{.Image}}" !CONTAINER_ID! 2^>nul') do set "IMAGE_ID=%%I"
+)
+
+echo [INFO] 停止服務 %SERVICE%...
+docker compose stop %SERVICE%
+
+echo [INFO] 刪除服務容器 %SERVICE%...
+docker compose rm -f %SERVICE%
+
+if defined IMAGE_ID (
+  echo [INFO] 刪除映像檔 !IMAGE_ID! ...
+  docker image rm -f !IMAGE_ID!
+) else (
+  echo [WARN] 找不到服務 %SERVICE% 對應的映像檔 ID，已跳過刪除映像檔。
+)
+goto :eof
+
 :help
 echo 用法:
 echo   run.bat start      啟動全部題目
@@ -95,5 +131,6 @@ echo   run.bat restart    重啟全部題目
 echo   run.bat status     查看容器狀態
 echo   run.bat logs [svc] 查看 logs (可選服務名，例如 web01)
 echo   run.bat clean      停止並刪除映像檔
+echo   run.bat cleanone [svc] 停止指定服務並刪除該服務映像檔
 echo.
 echo 不帶參數直接執行可進入互動選單。

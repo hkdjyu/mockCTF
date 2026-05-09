@@ -1,0 +1,16 @@
+{
+  "name": "Campus Helper",
+  "short_name": "Helper",
+  "start_url": "/index.php",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "shortcuts": [
+    {
+      "name": "Draft Preview",
+      "short_name": "Draft",
+      "description": "Internal draft route",
+      "url": "/draft.php?from=manifest"
+    }
+  ]
+}

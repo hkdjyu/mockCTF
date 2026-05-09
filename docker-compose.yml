@@ -58,3 +58,183 @@ services:
     ports:
       - "8010:80"
     restart: always
+
+  web11:
+    build: ./Web-11
+    ports:
+      - "8011:80"
+    restart: always
+
+  web12:
+    build: ./Web-12
+    ports:
+      - "8012:80"
+    restart: always
+
+  web13:
+    build: ./Web-13
+    ports:
+      - "8013:80"
+    restart: always
+
+  web14:
+    build: ./Web-14
+    ports:
+      - "8014:80"
+    restart: always
+
+  web15:
+    build: ./Web-15
+    ports:
+      - "8015:80"
+    restart: always
+
+  web16:
+    build: ./Web-16
+    ports:
+      - "8016:80"
+    restart: always
+
+  web17:
+    build: ./Web-17
+    ports:
+      - "8017:80"
+    restart: always
+
+  web18:
+    build: ./Web-18
+    ports:
+      - "8018:80"
+    restart: always
+
+  web19:
+    build: ./Web-19
+    ports:
+      - "8019:80"
+    restart: always
+
+  web20:
+    build: ./Web-20
+    ports:
+      - "8020:80"
+    restart: always
+
+  web21:
+    build: ./Web-21
+    ports:
+      - "8021:80"
+    restart: always
+
+  web22:
+    build: ./Web-22
+    ports:
+      - "8022:80"
+    restart: always
+
+  web23:
+    build: ./Web-23
+    ports:
+      - "8023:80"
+    restart: always
+
+  web24:
+    build: ./Web-24
+    ports:
+      - "8024:80"
+    restart: always
+
+  web25:
+    build: ./Web-25
+    ports:
+      - "8025:80"
+    restart: always
+
+  web26:
+    build: ./Web-26
+    ports:
+      - "8026:80"
+    restart: always
+
+  web27:
+    build: ./Web-27
+    ports:
+      - "8027:80"
+    restart: always
+
+  web28:
+    build: ./Web-28
+    ports:
+      - "8028:80"
+    restart: always
+
+  web29:
+    build: ./Web-29
+    ports:
+      - "8029:80"
+    restart: always
+
+  web30:
+    build: ./Web-30
+    ports:
+      - "8030:80"
+    restart: always
+
+  web31:
+    build: ./Web-31
+    ports:
+      - "8031:80"
+    restart: always
+
+  web32:
+    build: ./Web-32
+    ports:
+      - "8032:80"
+    restart: always
+
+  web33:
+    build: ./Web-33
+    ports:
+      - "8033:80"
+    restart: always
+
+  web34:
+    build: ./Web-34
+    ports:
+      - "8034:80"
+    restart: always
+
+  web35:
+    build: ./Web-35
+    ports:
+      - "8035:80"
+    restart: always
+
+  web36:
+    build: ./Web-36
+    ports:
+      - "8036:80"
+    restart: always
+
+  web37:
+    build: ./Web-37
+    ports:
+      - "8037:80"
+    restart: always
+
+  web38:
+    build: ./Web-38
+    ports:
+      - "8038:80"
+    restart: always
+
+  web39:
+    build: ./Web-39
+    ports:
+      - "8039:80"
+    restart: always
+
+  web40:
+    build: ./Web-40
+    ports:
+      - "8040:80"
+    restart: always

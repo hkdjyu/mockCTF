@@ -1,6 +1,6 @@
-# 🛡️ 靈糧堂劉梅軒中學 — Web CTF 實戰靶機伺服器（10 題版）
+# 🛡️ 靈糧堂劉梅軒中學 — Web CTF 實戰靶機伺服器（40 題版）
 
-本專案以 Docker Compose 架設 10 題 Web CTF 入門靶機，適合高中生使用瀏覽器 DevTools 與 CyberChef 進行解題練習。
+本專案以 Docker Compose 架設 40 題 Web CTF 入門靶機，適合高中生使用瀏覽器 DevTools 與 CyberChef 進行解題練習。
 
 ---
 
@@ -29,10 +29,21 @@ mockCTF/
 │   ├── Answer.md
 │   └── src/
 ├── ...
-└── Web-10/
-     ├── Dockerfile
-     ├── Answer.md
-     └── src/
+├── Web-10/
+│   ├── Dockerfile
+│   ├── Answer.md
+│   └── src/
+├── ...
+├── Web-20/
+│   ├── Dockerfile
+│   ├── Answer.md
+│   └── src/
+├── ...
+└── Web-40/
+    ├── Dockerfile
+    ├── Answer.md
+    ├── setup.md
+    └── src/
 ```
 
 ---
@@ -95,13 +106,44 @@ run.bat clean
 | Web-08 | Source Map 洩漏 | http://localhost:8008 | [Web-08/Answer.md](Web-08/Answer.md) |
 | Web-09 | 假 API 真線索（JSON 欄位） | http://localhost:8009 | [Web-09/Answer.md](Web-09/Answer.md) |
 | Web-10 | 多步轉換壓軸題（Base64 → Hex） | http://localhost:8010 | [Web-10/Answer.md](Web-10/Answer.md) |
+| Web-11 | 被隱藏的表單欄位（DOM / Disabled Field） | http://localhost:8011 | [Web-11/Answer.md](Web-11/Answer.md) |
+| Web-12 | SessionStorage 的短期記憶 | http://localhost:8012 | [Web-12/Answer.md](Web-12/Answer.md) |
+| Web-13 | Hash Fragment 的密語 | http://localhost:8013 | [Web-13/Answer.md](Web-13/Answer.md) |
+| Web-14 | 被快取的舊秘密（Cache Storage） | http://localhost:8014 | [Web-14/Answer.md](Web-14/Answer.md) |
+| Web-15 | IndexedDB 資料倉庫 | http://localhost:8015 | [Web-15/Answer.md](Web-15/Answer.md) |
+| Web-16 | JWT 自白書 | http://localhost:8016 | [Web-16/Answer.md](Web-16/Answer.md) |
+| Web-17 | manifest.json 說太多了 | http://localhost:8017 | [Web-17/Answer.md](Web-17/Answer.md) |
+| Web-18 | Service Worker 的假畫面 | http://localhost:8018 | [Web-18/Answer.md](Web-18/Answer.md) |
+| Web-19 | 重送請求的第二答案 | http://localhost:8019 | [Web-19/Answer.md](Web-19/Answer.md) |
+| Web-20 | 最終拼圖：你看的不只是一頁 | http://localhost:8020 | [Web-20/Answer.md](Web-20/Answer.md) |
+| Web-21 | 文本檔的編碼祕密（TXT + Hex/Base64） | http://localhost:8021 | [Web-21/Answer.md](Web-21/Answer.md) |
+| Web-22 | 試算表隱藏欄（CSV） | http://localhost:8022 | [Web-22/Answer.md](Web-22/Answer.md) |
+| Web-23 | PDF 元數據洩漏 | http://localhost:8023 | [Web-23/Answer.md](Web-23/Answer.md) |
+| Web-24 | 隱藏工作表（XLSX） | http://localhost:8024 | [Web-24/Answer.md](Web-24/Answer.md) |
+| Web-25 | 向量圖裡的文本（SVG） | http://localhost:8025 | [Web-25/Answer.md](Web-25/Answer.md) |
+| Web-26 | 圖片 EXIF 元數據（PNG） | http://localhost:8026 | [Web-26/Answer.md](Web-26/Answer.md) |
+| Web-27 | 位圖隱寫（BMP + LSB） | http://localhost:8027 | [Web-27/Answer.md](Web-27/Answer.md) |
+| Web-28 | 音訊 ID3 標籤（MP3） | http://localhost:8028 | [Web-28/Answer.md](Web-28/Answer.md) |
+| Web-29 | RIFF 元數據（WAV） | http://localhost:8029 | [Web-29/Answer.md](Web-29/Answer.md) |
+| Web-30 | 最終檔案迷宮（多格式綜合） | http://localhost:8030 | [Web-30/Answer.md](Web-30/Answer.md) |
+| Web-31 | JPEG EXIF 隱寫（手動製檔） | http://localhost:8031 | [Web-31/Answer.md](Web-31/Answer.md) |
+| Web-32 | PNG tEXt 隱寫（手動製檔） | http://localhost:8032 | [Web-32/Answer.md](Web-32/Answer.md) |
+| Web-33 | GIF 幀訊息（手動製檔） | http://localhost:8033 | [Web-33/Answer.md](Web-33/Answer.md) |
+| Web-34 | WebP Metadata（手動製檔） | http://localhost:8034 | [Web-34/Answer.md](Web-34/Answer.md) |
+| Web-35 | MP4 Metadata 隱寫（手動製檔） | http://localhost:8035 | [Web-35/Answer.md](Web-35/Answer.md) |
+| Web-36 | MKV 附件隱寫（手動製檔） | http://localhost:8036 | [Web-36/Answer.md](Web-36/Answer.md) |
+| Web-37 | FLAC Tag 隱寫（手動製檔） | http://localhost:8037 | [Web-37/Answer.md](Web-37/Answer.md) |
+| Web-38 | OGG/Opus Metadata（手動製檔） | http://localhost:8038 | [Web-38/Answer.md](Web-38/Answer.md) |
+| Web-39 | 光譜圖隱寫（手動製檔） | http://localhost:8039 | [Web-39/Answer.md](Web-39/Answer.md) |
+| Web-40 | 多媒體綜合隱寫（手動製檔） | http://localhost:8040 | [Web-40/Answer.md](Web-40/Answer.md) |
 
 ---
 
 ## 👨‍🏫 課堂使用建議
 
-- 建議順序：`Web-01` → `Web-10`（由易到難）。
-- 學生工具限制：僅使用 DevTools + CyberChef。
+- 建議順序：`Web-01` → `Web-40`（由易到難）。
+- 學生工具限制：DevTools + CyberChef + 線上檔案分析工具。
+- Web-31 ~ Web-40 的素材檔請教師先依各題 `setup.md` 手動製作後放入 `src/files/`。
 - 教師可先閱讀各題 `Answer.md` 再安排提示層級。
 
 ---

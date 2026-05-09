@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <circle cx="100" cy="100" r="90" stroke="blue" fill="lightblue" stroke-width="2"/>
+  <text x="100" y="110" text-anchor="middle" font-size="24" fill="blue">校徽</text>
+  <text x="-9999" y="-9999" font-size="12" fill="white" display="none">ZmxhZ3tzdmdfaGlkZGVuX3RleHR9</text>
+</svg>
