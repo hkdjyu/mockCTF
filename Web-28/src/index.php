@@ -15,7 +15,7 @@
         <h1>🎵 校歌錄音</h1>
         <p>校歌的 MP3 音訊檔。該檔案的 ID3 標籤可能含有特殊資訊。</p>
         <p><a href="/files/anthem.mp3" download>📥 下載 anthem.mp3</a></p>
-        <p>提示：用線上 MP3 元數據檢查工具或 <a href="https://www.mediahuman.com/tag-editor/" target="_blank">MP3 Tag Editor</a>。</p>
+        <!-- <p>提示：用線上 MP3 元數據檢查工具或 <a href="https://www.mediahuman.com/tag-editor/" target="_blank">MP3 Tag Editor</a>。</p> -->
     </div>
 </body>
 </html>

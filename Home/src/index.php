@@ -11,6 +11,49 @@ for ($i = 1; $i <= 40; $i++) {
     ];
 }
 
+    $questionMeta = [
+      'web01' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB', 'DEVTOOL']],
+      'web02' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL', 'CRYPTO']],
+      'web03' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL', 'RE']],
+      'web04' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL', 'CRYPTO']],
+      'web05' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL']],
+      'web06' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL', 'CRYPTO']],
+      'web07' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL', 'CRYPTO']],
+      'web08' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'DEVTOOL', 'RE']],
+      'web09' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'DEVTOOL', 'MISC']],
+      'web10' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'DEVTOOL', 'CRYPTO', 'MISC']],
+      'web11' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL']],
+      'web12' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL']],
+      'web13' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL']],
+      'web14' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'DEVTOOL']],
+      'web15' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'DEVTOOL', 'MISC']],
+      'web16' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'DEVTOOL', 'CRYPTO']],
+      'web17' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL']],
+      'web18' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'DEVTOOL', 'MISC']],
+      'web19' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'DEVTOOL']],
+      'web20' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'DEVTOOL', 'MISC']],
+      'web21' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MISC', 'CRYPTO']],
+      'web22' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MISC', 'MEDIA']],
+      'web23' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['MEDIA', 'MISC']],
+      'web24' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['MEDIA', 'MISC']],
+      'web25' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MEDIA', 'MISC']],
+      'web26' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['MEDIA', 'STENO']],
+      'web27' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['MEDIA', 'STENO']],
+      'web28' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MEDIA', 'MISC']],
+      'web29' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['MEDIA', 'MISC']],
+      'web30' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['MISC', 'MEDIA', 'CRYPTO']],
+      'web31' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'STENO']],
+      'web32' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'STENO', 'CRYPTO']],
+      'web33' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'STENO']],
+      'web34' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'STENO']],
+      'web35' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'STENO']],
+      'web36' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'MEDIA', 'STENO', 'RE']],
+      'web37' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'CRYPTO']],
+      'web38' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'STENO']],
+      'web39' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'MEDIA', 'STENO']],
+      'web40' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'MEDIA', 'MISC']],
+    ];
+
 $flagsByQuestion = [
     'web01' => 'flag{d3v_t00ls_4_th3_w1n}',
     'web02' => 'flag{comment_1n_comm3nt}',
@@ -38,7 +81,7 @@ $flagsByQuestion = [
     'web24' => 'flag{excel_hidden_sheets}',
     'web25' => 'flag{svg_hidden_text}',
     'web26' => 'flag{png_exif_metadata}',
-    'web27' => 'flag{bmp_lsb_steganography}',
+    'web27' => 'flag{bmp_steganography}',
     'web28' => 'flag{mp3_id3_tags}',
     'web29' => 'flag{wav_riff_chunks}',
     'web30' => 'flag{multi_format_maze_challenge}',
@@ -54,36 +97,37 @@ $flagsByQuestion = [
     'web40' => 'flag{hello_world}',
 ];
 
-if (!isset($_SESSION['solved']) || !is_array($_SESSION['solved'])) {
-    $_SESSION['solved'] = [];
-}
-
 $message = '';
 $messageType = '';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $flagInput = isset($_POST['flag']) ? trim((string)$_POST['flag']) : '';
-    if ($flagInput === '') {
-        $message = '請先輸入 Flag。';
-        $messageType = 'error';
-    } else {
-        $matchedQuestion = null;
-        foreach ($flagsByQuestion as $question => $flag) {
-            if (hash_equals($flag, $flagInput)) {
-                $matchedQuestion = $question;
-                break;
-            }
-        }
+if (!isset($_SESSION['solved']) || !is_array($_SESSION['solved'])) {
+  $_SESSION['solved'] = [];
+}
 
-        if ($matchedQuestion !== null) {
-            $_SESSION['solved'][$matchedQuestion] = true;
-            $message = '驗證成功！已完成 ' . strtoupper($matchedQuestion) . '。';
-            $messageType = 'success';
-        } else {
-            $message = 'Flag 不正確，請再試一次。';
-            $messageType = 'error';
-        }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $flagInput = isset($_POST['flag']) ? trim((string)$_POST['flag']) : '';
+
+  if ($flagInput === '') {
+    $message = '請先輸入 Flag。';
+    $messageType = 'error';
+  } else {
+    $matchedQuestion = null;
+    foreach ($flagsByQuestion as $question => $flag) {
+      if (hash_equals($flag, $flagInput)) {
+        $matchedQuestion = $question;
+        break;
+      }
     }
+
+    if ($matchedQuestion !== null) {
+      $_SESSION['solved'][$matchedQuestion] = true;
+      $message = '驗證成功！已完成 ' . strtoupper($matchedQuestion) . '。';
+      $messageType = 'success';
+    } else {
+      $message = 'Flag 不正確，請再試一次。';
+      $messageType = 'error';
+    }
+  }
 }
 
 $solvedCount = count($_SESSION['solved']);
@@ -248,6 +292,32 @@ $totalCount = count($questions);
       color: var(--muted);
     }
 
+    .difficulty {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    .tags {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 11px;
+      line-height: 1;
+      padding: 5px 7px;
+      border-radius: 999px;
+      border: 1px solid #d6deea;
+      background: #f4f7fb;
+      color: #344255;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
     .badge {
       margin-top: 8px;
       font-size: 12px;
@@ -276,7 +346,9 @@ $totalCount = count($questions);
     <section class="hero">
       <h1>mockCTF Home</h1>
       <p>在這裡快速跳轉題目，並輸入你找到的 Flag 以記錄已完成題目。</p>
-      <div class="meter">完成進度：<?php echo $solvedCount; ?> / <?php echo $totalCount; ?></div>
+      <div class="meter">
+        完成進度：<?php echo $solvedCount; ?> / <?php echo $totalCount; ?>
+      </div>
     </section>
 
     <section class="panel">
@@ -294,9 +366,16 @@ $totalCount = count($questions);
     <section class="grid">
       <?php foreach ($questions as $key => $q): ?>
         <?php $done = !empty($_SESSION['solved'][$key]); ?>
+        <?php $meta = $questionMeta[$key] ?? ['difficulty' => '未知', 'tags' => ['N/A']]; ?>
         <a class="card" href="<?php echo htmlspecialchars($q['url'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer">
           <div class="title"><?php echo htmlspecialchars($q['label'], ENT_QUOTES, 'UTF-8'); ?></div>
           <div class="meta"><?php echo htmlspecialchars($q['url'], ENT_QUOTES, 'UTF-8'); ?></div>
+          <div class="difficulty">難度：<?php echo htmlspecialchars($meta['difficulty'], ENT_QUOTES, 'UTF-8'); ?></div>
+          <div class="tags">
+            <?php foreach ($meta['tags'] as $tag): ?>
+              <span class="tag"><?php echo htmlspecialchars($tag, ENT_QUOTES, 'UTF-8'); ?></span>
+            <?php endforeach; ?>
+          </div>
           <div class="badge <?php echo $done ? 'ok' : ''; ?>">
             <?php echo $done ? '已完成' : '未完成'; ?>
           </div>

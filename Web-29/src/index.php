@@ -15,7 +15,7 @@
         <h1>📻 校園廣播公告</h1>
         <p>校園廣播的 WAV 音訊檔案。該 RIFF 格式檔案的 LIST chunk 中可能含有隱藏訊息。</p>
         <p><a href="/files/announcement.wav" download>📥 下載 announcement.wav</a></p>
-        <p>提示：用線上十六進位工具（例如 hexed.it）搜尋 <code>ICMT</code>。</p>
+        <!-- <p>提示：用線上十六進位工具（例如 hexed.it）搜尋 <code>ICMT</code>。</p> -->
     </div>
 </body>
 </html>

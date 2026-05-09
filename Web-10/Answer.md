@@ -3,8 +3,18 @@
 ## 題目描述
 最後最難題結合多個 DevTools 功能：從 Storage、Network、Console 各地蒐集碎片，拼組後再做多層編碼解碼。
 
-## 解題步驟
+## 難度
+★★★★☆（4星）
 
+## 種類
+WEB, DEVTOOL, CRYPTO, MISC
+
+## 建議工具
+- 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）
+- CyberChef（From Base64 / From Hex / URL Decode 等）
+- Hex 工具（hexed.it）
+
+## 解題步驟
 ### 1. 開啟 DevTools 瀏覽 Storage
 
 **localStorage 取第一段：**
@@ -53,8 +63,14 @@ part1 + part2+3 + part4
    - 最後 `From Base64`
    - 得到： `flag{emi_ultimate_dev_detective}`
 
-## 學習重點
+## 驗證與常見卡點
+- 驗證方式：最終輸出需符合 `flag{...}` 格式，且與題目提示一致。
+- 常見卡點：Base64 可能是 URL-safe 版本，必要時先補 `=` 再解碼。
+- 常見卡點：Hex 需先去除空白與非 0-9A-F 字元。
+- 常見卡點：確認在正確網域下重新整理後再讀取 Storage。
+- 常見卡點：改參數後要看 Response 內容，不只看狀態碼。
 
+## 學習重點
 - DevTools 的 **Storage** 分頁可檢視前端本機資訊（不安全）
 - **Network** 分頁能截獲 AJAX 回應，洩漏 API 資訊
 - **Console** 可看到開發者留下的提示與錯誤
@@ -62,3 +78,4 @@ part1 + part2+3 + part4
 
 ## Flag
 `flag{emi_ultimate_dev_detective}`
+

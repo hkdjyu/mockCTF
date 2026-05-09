@@ -1,8 +1,35 @@
 # ✅ Web-39 解題說明 — 光譜圖隱寫
 
-1. 下載 `beacon.wav`。
-2. 用線上 spectrogram 工具 (https://www.boxentriq.com/steganography/audio-spectrogram) 打開音檔。
-3. 在光譜圖中讀取字串。
- 
+## 題目描述
+此題線索藏在音訊的頻譜圖（Spectrogram）中，不一定能靠耳朵直接聽出。需要把聲音轉成時間-頻率視圖，再讀取圖像中的資訊。
+
+## 難度
+★★★★☆（4星）
+
+## 種類
+WEB, MEDIA, STENO
+
+## 建議工具
+- 瀏覽器 DevTools（Network）
+- Audacity（Spectrogram 視圖）
+- Sonic Visualiser / 線上 spectrogram 工具
+
+## 解題步驟
+1. 開啟 `http://localhost:8039`。
+2. 下載題目提供的音訊檔。
+3. 在 Audacity 切換為 `Spectrogram` 檢視模式。
+4. 調整頻率上限、對比、窗長，讀取隱藏圖樣或字串。
+5. 整理文字後得到旗標。
+
+## 驗證與常見卡點
+- 驗證方式：結果應為完整 `flag{...}`。
+- 常見卡點：頻譜參數不對時看不到完整文字。
+- 常見卡點：左右聲道可能各藏不同片段，需分開看。
+
+## 學習重點
+- 頻譜圖是音訊隱寫中很常見的視覺化通道。
+- 聽不到不代表不存在，需善用訊號分析工具。
+- 調參能力直接影響解題效率。
+
 ## Flag
 `flag{spectrogram_hard}`

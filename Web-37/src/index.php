@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web-37 FLAC Tag 隱寫</title>
+  <title>Web-37 Telegraph</title>
 </head>
 <body>
-  <h1>🎧 Web-37 FLAC Vorbis Comment</h1>
-  <p>線索藏在 FLAC 的 Vorbis comment 標籤。</p>
-  <ul>
-    <li><a href="/files/code.flac" download>code.flac</a></li>
-  </ul>
-  <p>出題者檔案準備方式請看 <code>Web-37/setup.md</code>。</p>
+  <!-- provide an audio player to play /files/code.flac only -->
+  <audio controls>
+    <source src="/files/code.flac" type="audio/flac">
+    您的瀏覽器不支援音訊播放，請下載檔案後使用適當的播放器收聽。
+  </audio>
+
 </body>
 </html>
