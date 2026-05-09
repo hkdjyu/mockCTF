@@ -14,11 +14,10 @@
 <body>
     <div class="card">
         <h1>📊 行政記錄</h1>
-        <p>系統記錄檔案（XLSX 格式）。表面上只有一份工作表，但可能隱藏了其他資訊。</p>
+        <p>系統記錄檔案（XLSX 格式）。</p>
         <ul>
             <li><a href="/files/records.xlsx" download>📥 records.xlsx</a></li>
         </ul>
-        <p>提示：線上 Excel 查看器或本地 Excel / LibreOffice。</p>
     </div>
 </body>
 </html>

@@ -32,7 +32,7 @@
         <h1>⏳ 工作階段資料同步</h1>
         <p>這個頁面只會在本次瀏覽工作階段暫時保留診斷資料。</p>
         <p>重新開新的工作階段後資料就會消失，請儘快檢查。</p>
-        <p>提示：到 <code>Application → Session Storage</code> 看看。</p>
+        <!-- <p>提示：到 <code>Application → Session Storage</code> 看看。</p> -->
     </div>
 
     <script>

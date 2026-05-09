@@ -90,6 +90,56 @@ run.bat clean
 
 不帶參數執行 `./run.command` 會進入互動選單。
 
+### Raspberry Pi 設定（run.sh）
+
+#### 1. 安裝 Docker
+
+```bash
+curl -fsSL https://get.docker.com | sh
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+#### 2. 安裝 Docker Compose Plugin
+
+```bash
+sudo apt-get update
+sudo apt-get install -y docker-compose-plugin
+docker compose version
+```
+
+#### 3. 複製專案並執行
+
+```bash
+git clone https://github.com/your-repo/mockCTF.git
+cd mockCTF
+chmod +x run.sh
+./run.sh
+```
+
+也可直接帶參數執行：
+
+```bash
+./run.sh start
+./run.sh stop
+./run.sh restart
+./run.sh status
+./run.sh logs web01
+./run.sh clean
+```
+
+不帶參數執行 `./run.sh` 會進入互動選單。
+
+#### 4. 查詢 Raspberry Pi IP（供學生連線）
+
+```bash
+hostname -I | awk '{print $1}'
+```
+
+學生使用瀏覽器連線：`http://<Pi的IP>:8001`
+
+> **注意：** Raspberry Pi 4 採用 ARM 架構，若遇到映像檔不相容，請確認各 Dockerfile 使用的基底映像支援 `linux/arm64` 或 `linux/arm/v7`。
+
 ---
 
 ## 🌐 題目與埠號對照

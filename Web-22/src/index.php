@@ -14,11 +14,10 @@
 <body>
     <div class="card">
         <h1>📊 學生成績表</h1>
-        <p>學年度學生成績統計表。表格前四欄是公開顯示，但原始檔案可能有更多欄位。</p>
-        <ul>
+        <p>學年度學生成績統計表。尚待最後複核，暫不公開。</p>
+        <!-- <ul>
             <li><a href="/files/students.csv" download>📥 students.csv</a></li>
-        </ul>
-        <p>提示：用文本編輯器或線上 CSV 查看器檢查所有欄位。</p>
+        </ul> -->
     </div>
 </body>
 </html>

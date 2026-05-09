@@ -8,12 +8,12 @@ os.makedirs('/var/www/html/files', exist_ok=True)
 flag = 'flag{png_exif_metadata}'
 encoded = base64.b64encode(flag.encode()).decode()
 
-img = Image.new('RGB', (260, 180), color=(190, 40, 40))
+img = Image.new('RGB', (260, 180), color=(205, 235, 205))
 meta = PngInfo()
 meta.add_text('Author', encoded)
 meta.add_text('Subject', 'Internal')
 meta.add_text('Comment', 'Check metadata fields carefully')
 
-img.save('/var/www/html/files/seal.png', pnginfo=meta)
+img.save('/var/www/html/files/background.png', pnginfo=meta)
 
-print('[+] seal.png generated with PNG text metadata')
+print('[+] background.png generated with PNG text metadata')

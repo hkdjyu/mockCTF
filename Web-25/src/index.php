@@ -13,9 +13,7 @@
 <body>
     <div class="card">
         <h1>🎨 校徽設計</h1>
-        <p>以下是校徽的 SVG 向量圖。某些圖形元素可能包含隱藏的資訊。</p>
-        <p><a href="/files/logo.svg" download>📥 下載 logo.svg</a></p>
-        <p>提示：用文本編輯器檢查 SVG 原始碼。</p>
+        <img src="/files/logo.svg" alt="校徽設計" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, .1);">
     </div>
 </body>
 </html>

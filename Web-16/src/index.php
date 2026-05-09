@@ -31,7 +31,7 @@
     <div class="card">
         <h1>🎫 單一登入測試頁</h1>
         <p>頁面已暫時建立訪客登入狀態，方便前端測試流程。</p>
-        <p>提示：檢查 <code>Application → Local Storage</code>。</p>
+        <!-- <p>提示：檢查 <code>Application → Local Storage</code>。</p> -->
     </div>
 
     <script>

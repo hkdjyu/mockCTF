@@ -1,4 +1,10 @@
 services:
+  home:
+    build: ./Home
+    ports:
+      - "8000:80"
+    restart: always
+
   web01:
     build: ./Web-01
     ports:

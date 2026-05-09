@@ -1,6 +1,8 @@
 # ✅ Web-40 解題說明 — 多媒體綜合隱寫
 
-1. 下載三個檔案：JPG、MP3、MP4。
-2. 從各自 metadata 提取三段字串。
-3. 依題目提示順序拼接。
-4. 用 CyberChef 還原最終旗標。
+1. 下載檔案：speech.txt。
+2. 更改檔案格式為speech.wav。
+3. 播放的的檔案，聆聽Hello underscore world
+
+## Flag
+`flag{hello_world}`

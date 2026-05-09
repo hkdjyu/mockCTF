@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <label for="recovery_code">復原欄位（暫時鎖定）</label>
             <input
-                type="text"
+                type="hidden"
                 id="recovery_code"
                 name="recovery_code"
                 value="<?= $expected ?>"

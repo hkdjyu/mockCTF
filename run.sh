@@ -124,20 +124,20 @@ run_action() {
       ;;
     help|-h|--help)
       echo "用法:"
-      echo "  ./run.command start      啟動全部題目"
-      echo "  ./run.command stop       停止全部題目"
-      echo "  ./run.command restart    重啟全部題目"
-      echo "  ./run.command status     查看容器狀態"
-      echo "  ./run.command logs web01 查看指定服務 logs"
-      echo "  ./run.command clean      停止並刪除映像檔"
-      echo "  ./run.command cleanone web27 停止指定服務並刪除該服務映像檔"
-      echo "  ./run.command restartone web27 重啟指定服務"
+      echo "  ./run.sh start      啟動全部題目"
+      echo "  ./run.sh stop       停止全部題目"
+      echo "  ./run.sh restart    重啟全部題目"
+      echo "  ./run.sh status     查看容器狀態"
+      echo "  ./run.sh logs web01 查看指定服務 logs"
+      echo "  ./run.sh clean      停止並刪除映像檔"
+      echo "  ./run.sh cleanone web27 停止指定服務並刪除該服務映像檔"
+      echo "  ./run.sh restartone web27 重啟指定服務"
       echo
       echo "不帶參數執行可進入互動選單。"
       ;;
     *)
       echo "未知指令: $action"
-      echo "執行 ./run.command help 查看用法"
+      echo "執行 ./run.sh help 查看用法"
       return 1
       ;;
   esac

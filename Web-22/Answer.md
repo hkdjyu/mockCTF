@@ -5,11 +5,12 @@
 
 ## 解題步驟
 1. 開啟 `http://localhost:8022`。
-2. 下載 `students.csv`。
-3. 用文本編輯器開啟，或拖入線上 CSV 查看器。
-4. 觀察表頭，會看到第五欄 `Internal`。
-5. 查看 Alice Chen 那列，第五欄是 Base64 編碼：`flag{csv_hidden_columns}` 的編碼版。
-6. 將字串貼到 CyberChef，使用 `From Base64` 解碼。
+2. 在Elements中閲讀代碼，前往`http://localhost:8022/files/students.csv`
+3. 下載 `students.csv`。
+4. 用文本編輯器開啟，或拖入線上 CSV 查看器。
+5. 觀察表頭，會看到第五欄 `Internal`。
+6. 查看 Alice Chen 那列，第五欄是 Base64 編碼：`flag{csv_hidden_columns}` 的編碼版。
+7. 將字串貼到 CyberChef，使用 `From Base64` 解碼。
 
 ## 學習重點
 - CSV 完全基於純文本，隱藏欄位只需在第一行增加欄位名。

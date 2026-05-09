@@ -5,10 +5,9 @@
 
 ## 解題步驟
 1. 開啟 `http://localhost:8023`。
-2. 下載 `annual-report.pdf`。
-3. 使用線上 PDF 元數據檢查工具（如 https://exif.tools/ 或 https://pdfmeta.tinyapps.org/）。
-4. 在 Author 欄位找到 Base64 編碼字串。
-5. 將字串貼到 CyberChef，使用 `From Base64` 解碼。
+2. 下載 `file.pdf`。
+3. 使用線上 PDF 元數據檢查工具（如 https://exif.tools/ 或 https://metadatakit.com/metadata）。
+4. 在 Subject 欄位找到flag
 
 ## 學習重點
 - PDF 檔案含有元數據（metadata），包括作者、標題、建立日期等。

@@ -5,13 +5,10 @@
 
 ## 解題步驟
 
-1. 下載題目提供的 `image.png`。
-2. 前往線上工具：**https://stegonline.georgeom.net/extract**
+1. 下載題目提供的 `image.jpeg`。
+2. 前往線上工具：**https://futureboy.us/stegano/**
 3. 上傳 `image.png`。
-4. 在 **Bit Planes** 欄位，勾選 **R Bit 0、G Bit 0、B Bit 0**（即 LSB）。
-5. 點擊 **Extract String**。
-6. 在輸出欄位中找到旗標字串。
+4. Base64
 
-## 提示
-- 若工具沒有輸出，嘗試只勾選其中一個 channel（R/G/B）。
-- 旗標格式為 `CTF{...}`。
+## Flag
+`flag{LSB_in_picture}`

@@ -9,7 +9,7 @@
   <h1>🧩 Web-34 WebP Metadata</h1>
   <p>線索藏在 WebP 的 EXIF / XMP metadata。</p>
   <ul>
-    <li><a href="/files/banner.webp" download>banner.webp</a></li>
+    <li><a href="/files/paraglide.webp" download>paraglide.webp</a></li>
   </ul>
   <p>出題者檔案準備方式請看 <code>Web-34/setup.md</code>。</p>
 </body>
