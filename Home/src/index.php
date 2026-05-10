@@ -392,6 +392,7 @@ $totalCount = count($questions);
     .tag.web { background: #3b82f6; }
     .tag.crypto { background: #f97316; }
     .tag.misc { background: #8b5cf6; }
+    .tag.forensics { background: #10b981; }
 
     .badge {
       font-size: 12px;
@@ -462,7 +463,8 @@ $totalCount = count($questions);
           <button type="button" class="filter-btn active" data-filter-type="tag" data-filter-value="all">全部</button>
           <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="WEB">WEB</button>
           <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="CRYPTO">CRYPTO</button>
-          <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="MISC">MISC</button>
+          <!-- <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="MISC">MISC</button> -->
+          <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="Forensics">Forensics</button>
         </div>
       </div>
 
