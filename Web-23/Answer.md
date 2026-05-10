@@ -7,7 +7,7 @@
 ★☆☆☆☆（1星）
 
 ## 種類
-MISC
+Forensics
 
 ## 建議工具
 - CyberChef（From Base64 / From Hex / URL Decode 等）

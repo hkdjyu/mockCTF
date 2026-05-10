@@ -7,7 +7,7 @@ GIF 支援多幀動畫，線索可能只出現在其中某一幀，或藏在 com
 ★★☆☆☆（2星）
 
 ## 種類
-MISC
+Forensics
 
 ## 建議工具
 - 瀏覽器 DevTools（Network）

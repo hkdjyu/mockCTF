@@ -7,7 +7,7 @@ XLSX 檔案中包含隱藏的工作表。請找到並解碼隱藏工作表中的
 ★★☆☆☆（2星）
 
 ## 種類
-MISC
+Forensics
 
 ## 建議工具
 - CyberChef（From Base64 / From Hex / URL Decode 等）

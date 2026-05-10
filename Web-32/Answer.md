@@ -7,7 +7,7 @@
 ★★★☆☆（3星）
 
 ## 種類
-MISC, CRYPTO
+Forensics, CRYPTO
 
 ## 建議工具
 - 瀏覽器 DevTools（Network）

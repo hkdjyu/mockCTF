@@ -7,7 +7,7 @@
 ★☆☆☆☆（1星）
 
 ## 種類
-WEB, MISC
+WEB, Forensics
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）
