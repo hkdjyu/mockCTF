@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web-26 食記小站</title>
+    <title>Web-26 背景</title>
     <style>
         :root { --ink: #1f2937; --muted: #5b6b63; --card: rgba(255, 255, 255, .86); --line: rgba(31, 41, 55, .08); }
         * { box-sizing: border-box; }

@@ -4,24 +4,30 @@
 WAV 音訊檔案是 RIFF 格式。該格式的 LIST chunk 中含有隱藏資訊。請下載檔案並提取元數據。
 
 ## 難度
-★★★☆☆（3星）
+★☆☆☆☆（1星）
 
 ## 種類
-MEDIA, MISC
+MISC
 
 ## 建議工具
-- CyberChef（From Base64 / From Hex / URL Decode 等）
-- Metadata 檢視工具（exif.tools / metadata2go）
-- Hex 工具（hexed.it）
+- Metadata 檢視工具（[metadatakit.com](https://metadatakit.com/metadata) / exif.tools）
+- CyberChef（From Base64）
+- Hex 工具（hexed.it）——進階分析用
 
 ## 解題步驟
-1. 開啟 `http://localhost:8029`。
-2. 下載 `announcement.wav`。
-3. 前往線上十六進位工具 `https://hexed.it/`，把 `announcement.wav` 拖進去。
-4. 先搜尋 `ICMT`（這是 RIFF INFO 的 Comment 子欄位）。
-5. 在 `ICMT` 後方會有 4 bytes 長度值（little-endian），再後面就是 ASCII 文字內容。
-6. 在 ASCII 視窗直接讀取該段 Base64 字串（通常以 `=` 或 `==` 結尾，且後面有空字元 `00`）。
-7. 複製 Base64 到 CyberChef，使用 `From Base64` 解碼，得到旗標。
+
+### 快速方法（使用線上 Metadata 工具）
+1. 開啟 `http://localhost:8029`，下載 `announcement.wav`。
+2. 前往 `https://metadatakit.com/metadata`，上傳 `announcement.wav`。
+3. 工具會自動解析 RIFF INFO chunk，在結果中找到 `Comment`（對應 `ICMT` 欄位）。
+4. 複製其中的 Base64 字串，貼到 CyberChef，套用 `From Base64` 解碼，得到旗標。
+
+### 進階方法（使用 Hex 工具理解底層結構）
+1. 前往 `https://hexed.it/`，把 `announcement.wav` 拖進去。
+2. 搜尋 `ICMT`（這是 RIFF INFO 的 Comment 子欄位）。
+3. 在 `ICMT` 後方有 4 bytes 長度值（little-endian），再後面是 ASCII 內容。
+4. 在 ASCII 視窗讀取 Base64 字串（通常以 `=` 或 `==` 結尾，後面有空字元 `00`）。
+5. 複製 Base64 到 CyberChef，使用 `From Base64` 解碼，得到旗標。
 
 ## 驗證與常見卡點
 - 驗證方式：最終輸出需符合 `flag{...}` 格式，且與題目提示一致。
@@ -31,8 +37,9 @@ MEDIA, MISC
 
 ## 學習重點
 - WAV 是 RIFF 格式，可包含多種 chunk（data、LIST、INFO 等）。
-- LIST chunk 可用於存儲元數據如作者、註解等。
-- 線上十六進位工具即可完成基礎音訊檔鑑識，不一定要安裝本機軟體。
+- LIST INFO chunk 的子欄位（如 `ICMT`）可存放作者、日期、註解等 metadata。
+- 線上 metadata 工具（metadatakit.com、exif.tools）能一鍵解析檔案的 metadata，是鑑識入門的好工具。
+- hexed.it 等十六進位工具適合理解 RIFF 底層結構，進一步學習格式細節。
 
 ## Flag
 `flag{wav_riff_chunks}`

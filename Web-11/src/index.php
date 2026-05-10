@@ -1,15 +1,15 @@
 <?php
-$expected = '666c61677b64697361626c65645f6669656c64735f7374696c6c5f74616c6b7d';
+$flag = 'flag{disabled_fields_still_talk}';
 $message = '';
 $success = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $submitted = $_POST['recovery_code'] ?? '';
-    if ($submitted === $expected) {
+    $submitted = trim($_POST['recovery_code'] ?? '');
+    if (preg_match('/^s\d{6}$/', $submitted) === 1) {
         $success = true;
-        $message = '偵錯輸出：' . htmlspecialchars($submitted, ENT_QUOTES, 'UTF-8');
+        $message = '驗證成功：收到有效學生編號 ' . htmlspecialchars($submitted, ENT_QUOTES, 'UTF-8');
     } else {
-        $message = '驗證失敗：缺少正確的復原欄位。';
+        $message = '驗證失敗：請輸入格式為 s + 6 位數字（例如 s123456）。';
     }
 }
 ?><!DOCTYPE html>
@@ -72,19 +72,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <!-- Dev note: disabled 欄位送出前不會被提交。 -->
     <div class="card">
-        <h1>📝 表單同步測試</h1>
-        <p>系統正在測試新的表單欄位同步功能。若表單資料完整，伺服器會顯示偵錯輸出。</p>
+        <h1>📝 輸入學生編號得到旗幟</h1>
+        <p>系統正在測試，目前隱藏輸入欄位。</p>
 
         <form method="POST">
-            <label for="student_id">學生編號</label>
-            <input type="text" id="student_id" name="student_id" placeholder="S12345" autocomplete="off">
-
-            <label for="recovery_code">復原欄位（暫時鎖定）</label>
+            <label for="recovery_code">學生編號（暫時隱藏）</label>
+            <!-- 學生編號格式（s123456） -->
             <input
                 type="hidden"
                 id="recovery_code"
                 name="recovery_code"
-                value="<?= $expected ?>"
+                value=""
                 disabled
             >
 
@@ -95,7 +93,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="msg <?= $success ? 'ok' : 'fail' ?>"><?= $message ?></div>
         <?php endif; ?>
 
-        <p><small>提示：有些欄位只是看不到，不代表不存在。</small></p>
     </div>
+    <script>
+        const recoveryInput = document.getElementById('recovery_code');
+        const ensureEditableWhenText = () => {
+            if (recoveryInput.type === 'text') {
+                recoveryInput.disabled = false;
+            }
+        };
+
+        ensureEditableWhenText();
+
+        const observer = new MutationObserver(ensureEditableWhenText);
+        observer.observe(recoveryInput, { attributes: true, attributeFilter: ['type'] });
+    </script>
+    <?php if ($success): ?>
+    <script>
+        console.log('<?= htmlspecialchars($flag, ENT_QUOTES, 'UTF-8') ?>');
+        alert('已觸發偵錯輸出，請開啟 Console 查看結果。');
+    </script>
+    <?php endif; ?>
 </body>
 </html>

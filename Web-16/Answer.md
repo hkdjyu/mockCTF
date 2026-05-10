@@ -4,10 +4,10 @@
 系統回傳了一段看似登入用途的 token。你不需要偽造它，只要正確解析內容，就能從中找到關鍵資訊。
 
 ## 難度
-★★★☆☆（3星）
+★☆☆☆☆（1星）
 
 ## 種類
-WEB, DEVTOOL, CRYPTO
+WEB
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）

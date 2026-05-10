@@ -6,7 +6,7 @@ header("X-Hint: The answer lies within...");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>靈糧堂劉梅軒中學 — 教職員入口網站</title>
+    <title>Web-01 開發者遺留除錯檔</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -69,7 +69,7 @@ header("X-Hint: The answer lies within...");
 
     <div class="card">
         <div class="logo">
-            <h1>🏫 教職員入口網站</h1>
+            <h1>Web-01 開發者遺留除錯檔</h1>
             <p>靈糧堂劉梅軒中學 內部系統</p>
         </div>
 

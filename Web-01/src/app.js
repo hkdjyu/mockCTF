@@ -5,7 +5,7 @@
 // [DEBUG] Temporary auth token used during development.
 // Remove this before the site goes live!
 //
-// token = "ZmxhZ3tkM3ZfdDAwbHNfNF90aDNfdzFufQ=="
+// token = "flag{d3v_t00ls_4_th3_w1n}"
 //
 
 console.log("[DEBUG] app.js loaded — dev mode active");

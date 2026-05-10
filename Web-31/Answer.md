@@ -1,13 +1,13 @@
-# ✅ Web-31 解題說明 — JPEG EXIF 隱寫
+# ✅ Web-31 解題說明 — 校訓及校徽
 
 ## 題目描述
 此題將線索藏在 JPEG 的 EXIF metadata 中。畫面上不一定會直接顯示圖片，挑戰者需要用 DevTools 的 Network 找到檔案，再從 metadata 欄位取出可解碼字串。
 
 ## 難度
-★★★☆☆（3星）
+★★☆☆☆（2星）
 
 ## 種類
-WEB, MEDIA, STENO
+WEB, MISC
 
 ## 建議工具
 - 瀏覽器 DevTools（Network / Sources）

@@ -4,10 +4,10 @@
 系統提示「資料只會保留在這次工作階段」。請從瀏覽器暫存儲存區找出可疑片段，並還原出隱藏旗標。
 
 ## 難度
-★★☆☆☆（2星）
+★☆☆☆☆（1星）
 
 ## 種類
-WEB, DEVTOOL
+WEB
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）

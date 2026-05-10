@@ -4,10 +4,10 @@
 學校筆記備份中藏有多層編碼的線索。請下載文本檔，找出被分段編碼的旗標。
 
 ## 難度
-★★☆☆☆（2星）
+★☆☆☆☆（1星）
 
 ## 種類
-MISC, CRYPTO
+MISC
 
 ## 建議工具
 - CyberChef（From Base64 / From Hex / URL Decode 等）

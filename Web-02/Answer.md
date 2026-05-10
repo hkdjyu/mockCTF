@@ -4,10 +4,10 @@
 首頁沒有明顯線索，但原始碼藏了多層註解與編碼片段。請找出真正有效的字串，再用 CyberChef 解出旗標。
 
 ## 難度
-★★☆☆☆（2星）
+★☆☆☆☆（1星）
 
 ## 種類
-WEB, DEVTOOL, CRYPTO
+WEB
 
 ## 建議工具
 - CyberChef（From Base64 / From Hex / URL Decode 等）
@@ -28,6 +28,7 @@ WEB, DEVTOOL, CRYPTO
 - 常見卡點：請檢查所有 metadata 欄位，不要只看單一欄位。
 
 ## 學習重點
+- Base64 是編碼不是加密。
 - 註解與假註解常被用來藏線索。
 - 多層編碼要判斷正確解碼順序。
 

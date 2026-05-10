@@ -4,10 +4,10 @@
 學生成績表中存在隱藏的第五欄。請下載 CSV 檔案，找出並解碼其中的旗標。
 
 ## 難度
-★★☆☆☆（2星）
+★☆☆☆☆（1星）
 
 ## 種類
-MISC, MEDIA
+WEB, MISC
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）

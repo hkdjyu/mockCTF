@@ -4,10 +4,10 @@
 頁面會偷偷呼叫一個 API。回應 JSON 裡有一個欄位平常不顯示，但它正是解出旗標的關鍵。
 
 ## 難度
-★★★☆☆（3星）
+★☆☆☆☆（1星）
 
 ## 種類
-WEB, DEVTOOL, MISC
+WEB
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）

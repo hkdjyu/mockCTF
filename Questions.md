@@ -165,10 +165,10 @@ DevTools (Application/Storage)、CyberChef
 **連線地址：** `http://localhost:8006`
 
 **題目描述：**  
-系統把線索拆成多段放在不同 Cookie。請找到規則並拼回完整字串，再用 CyberChef 解出旗標。
+頁面提供登入表單。以 `admin`/`admin` 帳號密碼登入後，系統會在 Cookie 中寫入 3 段令牌。請取出所有 Cookie 片段，拼接後用 CyberChef 解出旗標。
 
 **技術重點：**  
-Cookie 分析、字串拼接、Base64 解碼
+HTML 表單、Cookie 分析、字串拼接、Base64 解碼
 
 **所需工具：**  
 DevTools (Application/Cookies)、CyberChef
@@ -255,13 +255,13 @@ DevTools (Storage + Network + Console)、CyberChef
 **連線地址：** `http://localhost:8011`
 
 **題目描述：**  
-頁面上只有一個普通表單，但無論怎麼填寫都無法通過驗證。請檢查頁面 DOM 結構，找出被隱藏的欄位與真正的條件，取得最終旗標。
+頁面有一個表單欄位外觀隱藏。請用 DevTools 將輸入框改為可見，再輸入符合「學號格式（s + 6 位數字）」的值並送出，即可從瀏覽器 Console 看到旗標。
 
 **技術重點：**  
-HTML 表單分析、`hidden/disabled` 欄位、DOM 編輯
+HTML 表單分析、DOM 編輯、輸入格式驗證、Console 輸出
 
 **所需工具：**  
-DevTools (Elements / Network)、CyberChef
+DevTools (Elements / Console)、CyberChef
 
 **難度：** ⭐⭐☆☆☆
 
@@ -291,15 +291,15 @@ DevTools (Application / Storage)、CyberChef
 **連線地址：** `http://localhost:8013`
 
 **題目描述：**  
-首頁看起來沒有任何異狀，但網址尾端的 fragment 其實藏有重要線索。請分析前端如何處理 `#...` 內容，找出真正的提示字串。
+首頁看起來沒有任何異狀，但不同 URL fragment（`#...`）會觸發不同的行為。試著瀏覽 `#staff-preview` 路由，觀察 Network 面板的 API 回應，你會發現隱藏的資訊。
 
 **技術重點：**  
-URL Fragment、JavaScript 路由邏輯、URL Decode、多層編碼分析
+URL Fragment 路由、JavaScript 邏輯、Fetch 請求監聽、Base64 解碼
 
 **所需工具：**  
-DevTools (Sources / Console)、CyberChef
+DevTools (Network / Console)、CyberChef
 
-**難度：** ⭐⭐☆☆☆
+**難度：** ⭐⭐⭐☆☆
 
 **解題指南：** [Web-13/Answer.md](Web-13/Answer.md)
 
@@ -399,15 +399,15 @@ DevTools (Application / Sources / Network)、CyberChef
 **連線地址：** `http://localhost:8019`
 
 **題目描述：**  
-正常操作時系統只會回傳「查無資料」，但某個 API 請求的參數若稍作調整，回應內容就會完全不同。請找出真正的答案。
+API 回應取決於 Query 參數。試試修改 URL 參數中的 `view` 值（例如改為 `?view=normal`）再發送請求，觀察回應的變化。
 
 **技術重點：**  
-Network 請求分析、Edit and Resend、Query 參數修改、JSON 檢查
+Query 參數、Edit and Resend、API 回應分析、JSON 檢查
 
 **所需工具：**  
 DevTools (Network)、CyberChef
 
-**難度：** ⭐⭐⭐⭐☆
+**難度：** ⭐⭐⭐☆☆
 
 **解題指南：** [Web-19/Answer.md](Web-19/Answer.md)
 
@@ -579,13 +579,13 @@ DevTools + 音訊 metadata viewer、CyberChef
 **連線地址：** `http://localhost:8029`
 
 **題目描述：**  
-WAV 檔案搭配 metadata 提示檔，需解讀 RIFF/LIST 概念後找出旗標片段。
+WAV 檔案的 metadata 藏有線索。【快速方法】將檔案上傳至 https://metadatakit.com 可快速提取 Comment 欄位。【進階方法】用 hexed.it 手動分析 RIFF/LIST 結構。兩種方式均可找到旗標。
 
 **技術重點：**  
-WAV/RIFF 結構、metadata 提示、Base64 解碼
+WAV/RIFF 結構、Metadata 工具、Hex 分析、Base64 解碼
 
 **所需工具：**  
-DevTools (Network / Sources)、CyberChef
+DevTools (Network / Sources)、metadatakit.com 或 hexed.it、CyberChef
 
 **難度：** ⭐⭐⭐☆☆
 

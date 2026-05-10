@@ -7,7 +7,7 @@
 ★★☆☆☆（2星）
 
 ## 種類
-WEB, DEVTOOL, CRYPTO
+WEB
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）

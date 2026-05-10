@@ -23,13 +23,18 @@
             background: rgba(15, 23, 42, .8);
             border: 1px solid rgba(148, 163, 184, .22);
         }
+        .card p {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
     </style>
 </head>
 <body>
     <div class="card">
         <h1>📱 校園助手 PWA</h1>
         <p>這是一個簡化版的校園行事曆入口。請從前端設定中找出多餘資訊。</p>
-        <!-- <p>提示：靜態設定檔常會洩漏測試路徑。</p> -->
+        <p>I8hkJQjtgotF7Y69NPRCHcB2pxrttax1NOa02sOUt7dy79cc0UzWZrAN8eaNc5G1XPcC7jjXnJXlveZNwdjjbLMxPNAYlrA/5lLsvEbmtyWEvWgzsSRNarZwNIRjrW44ffgkrCQnOMm3AUL/va7VSp4Hjro366WgLjWrVuJNtmI= </p>
     </div>
 </body>
 </html>

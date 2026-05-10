@@ -4,10 +4,10 @@
 網站前端已壓縮混淆，但意外保留 source map。請透過 DevTools 還原原始程式，找出遺留的旗標資訊。
 
 ## 難度
-★★★☆☆（3星）
+★☆☆☆☆（1星）
 
 ## 種類
-WEB, DEVTOOL, RE
+WEB
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）
@@ -17,8 +17,8 @@ WEB, DEVTOOL, RE
 ## 解題步驟
 1. 在 `Sources` 查看壓縮後 JS，注意檔尾 `sourceMappingURL`。
 2. 開啟對應 `.map` 檔案，找到 `sourcesContent`。
-3. 從還原後原始碼搜尋 `flag`、`debug`、`secret`。
-4. 若值仍經編碼，複製到 CyberChef 用 `From Base64` 或 `From Hex`。
+3. 從還原後原始碼得到 `leaked = 'ZmxhZ3tzb3VyY2VtYXBfbGVha3Nfc291cmNlfQ==';`。
+4. 若值仍經編碼，複製到 CyberChef 用 `From Base64` 。
 5. 還原出 `flag{...}`。
 
 ## 驗證與常見卡點

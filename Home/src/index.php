@@ -12,46 +12,46 @@ for ($i = 1; $i <= 40; $i++) {
 }
 
     $questionMeta = [
-      'web01' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB', 'DEVTOOL']],
-      'web02' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL', 'CRYPTO']],
-      'web03' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL', 'RE']],
-      'web04' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL', 'CRYPTO']],
-      'web05' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL']],
-      'web06' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL', 'CRYPTO']],
-      'web07' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL', 'CRYPTO']],
-      'web08' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'DEVTOOL', 'RE']],
-      'web09' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'DEVTOOL', 'MISC']],
-      'web10' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'DEVTOOL', 'CRYPTO', 'MISC']],
-      'web11' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL']],
-      'web12' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL']],
-      'web13' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL']],
-      'web14' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'DEVTOOL']],
-      'web15' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'DEVTOOL', 'MISC']],
-      'web16' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'DEVTOOL', 'CRYPTO']],
-      'web17' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'DEVTOOL']],
-      'web18' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'DEVTOOL', 'MISC']],
-      'web19' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'DEVTOOL']],
-      'web20' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'DEVTOOL', 'MISC']],
-      'web21' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MISC', 'CRYPTO']],
-      'web22' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MISC', 'MEDIA']],
-      'web23' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['MEDIA', 'MISC']],
-      'web24' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['MEDIA', 'MISC']],
-      'web25' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MEDIA', 'MISC']],
-      'web26' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['MEDIA', 'STENO']],
-      'web27' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['MEDIA', 'STENO']],
-      'web28' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MEDIA', 'MISC']],
-      'web29' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['MEDIA', 'MISC']],
-      'web30' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['MISC', 'MEDIA', 'CRYPTO']],
-      'web31' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'STENO']],
-      'web32' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'STENO', 'CRYPTO']],
-      'web33' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'STENO']],
-      'web34' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'STENO']],
-      'web35' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'STENO']],
-      'web36' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'MEDIA', 'STENO', 'RE']],
-      'web37' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'CRYPTO']],
-      'web38' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'MEDIA', 'STENO']],
-      'web39' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'MEDIA', 'STENO']],
-      'web40' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'MEDIA', 'MISC']],
+      'web01' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+      'web02' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+      'web03' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+      'web04' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+      'web05' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+      'web06' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB']],
+      'web07' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
+      'web08' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+      'web09' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+      'web10' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
+      'web11' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
+      'web12' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+      'web13' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+      'web14' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'CRYPTO']],
+      'web15' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+      'web16' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+      'web17' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'CRYPTO']],
+      'web18' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+      'web19' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
+      'web20' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
+      'web21' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['MISC']],
+      'web22' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB', 'MISC']],
+      'web23' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['MISC']],
+      'web24' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MISC']],
+      'web25' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['MISC']],
+      'web26' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MISC']],
+      'web27' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['MISC']],
+      'web28' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['MISC']],
+      'web29' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['MISC']],
+      'web30' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MISC']],
+      'web31' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'MISC']],
+      'web32' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['MISC', 'CRYPTO']],
+      'web33' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MISC']],
+      'web34' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MISC']],
+      'web35' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['MISC']],
+      'web36' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['MISC']],
+      'web37' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MISC']],
+      'web38' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['MISC']],
+      'web39' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['MISC']],
+      'web40' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'MISC']],
     ];
 
 $flagsByQuestion = [
@@ -166,7 +166,7 @@ $totalCount = count($questions);
     }
 
     .wrap {
-      max-width: 1100px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 24px 16px 28px;
     }
@@ -177,6 +177,7 @@ $totalCount = count($questions);
       border-radius: 16px;
       padding: 22px;
       box-shadow: 0 10px 22px rgba(16, 37, 84, 0.2);
+      margin-bottom: 20px;
     }
 
     .hero h1 {
@@ -202,11 +203,15 @@ $totalCount = count($questions);
     }
 
     .panel {
-      margin-top: 16px;
+      position: sticky;
+      top: 10px;
+      z-index: 100;
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 14px;
       padding: 14px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     form {
@@ -237,6 +242,11 @@ $totalCount = count($questions);
       font-weight: 700;
       padding: 0 18px;
       cursor: pointer;
+      transition: background 120ms ease;
+    }
+
+    button:hover {
+      background: #085a71;
     }
 
     .msg {
@@ -258,11 +268,62 @@ $totalCount = count($questions);
       border: 1px solid #f5cecc;
     }
 
+    .filter-section {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .filter-title {
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    .filter-group {
+      margin-bottom: 16px;
+    }
+
+    .filter-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 120ms ease;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--accent);
+      background: #f0f7fb;
+    }
+
+    .filter-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
     .grid {
-      margin-top: 16px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
     }
 
     .card {
@@ -271,73 +332,91 @@ $totalCount = count($questions);
       border: 1px solid var(--line);
       border-radius: 12px;
       background: #fff;
-      padding: 12px;
-      transition: transform 120ms ease, box-shadow 120ms ease;
+      padding: 14px;
+      transition: all 120ms ease;
       display: block;
+      position: relative;
     }
 
     .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 14px rgba(29, 45, 76, 0.14);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 16px rgba(29, 45, 76, 0.14);
+    }
+
+    .card.completed {
+      background: #e8f8ef;
+      border-color: #c9ebd8;
+    }
+
+    .card.completed:hover {
+      box-shadow: 0 8px 16px rgba(27, 158, 89, 0.15);
     }
 
     .title {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
+      margin-bottom: 4px;
     }
 
     .meta {
-      margin-top: 6px;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--muted);
+      margin-bottom: 10px;
     }
 
     .difficulty {
-      margin-top: 8px;
       font-size: 13px;
       color: #334155;
       font-weight: 600;
+      margin-bottom: 8px;
     }
 
     .tags {
-      margin-top: 8px;
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 5px;
+      margin-bottom: 10px;
     }
 
     .tag {
       font-size: 11px;
-      line-height: 1;
-      padding: 5px 7px;
-      border-radius: 999px;
-      border: 1px solid #d6deea;
-      background: #f4f7fb;
-      color: #344255;
+      line-height: 1.2;
+      padding: 4px 8px;
+      border-radius: 6px;
       font-weight: 700;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.3px;
+      color: #fff;
+      border: none;
     }
 
+    .tag.web { background: #3b82f6; }
+    .tag.crypto { background: #f97316; }
+    .tag.misc { background: #8b5cf6; }
+
     .badge {
-      margin-top: 8px;
       font-size: 12px;
       font-weight: 700;
       display: inline-block;
-      padding: 4px 8px;
-      border-radius: 999px;
-      background: var(--chip);
-      color: #3a4350;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: #fef08a;
+      color: #78350f;
     }
 
     .badge.ok {
-      background: #e8f8ef;
+      background: #dcfce7;
       color: var(--ok);
+    }
+
+    .hidden {
+      display: none;
     }
 
     @media (max-width: 700px) {
       form { grid-template-columns: 1fr; }
       button { padding: 12px; }
       .hero h1 { font-size: 24px; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
     }
   </style>
 </head>
@@ -363,25 +442,114 @@ $totalCount = count($questions);
       <?php endif; ?>
     </section>
 
-    <section class="grid">
+    <section class="filter-section">
+      <div class="filter-title">🔍 篩選</div>
+      
+      <div class="filter-group">
+        <div style="font-size:12px; font-weight:600; margin-bottom:8px; color:var(--muted);">難度</div>
+        <div class="filter-options">
+          <button type="button" class="filter-btn active" data-filter-type="difficulty" data-filter-value="all">全部</button>
+          <button type="button" class="filter-btn" data-filter-type="difficulty" data-filter-value="1">1星</button>
+          <button type="button" class="filter-btn" data-filter-type="difficulty" data-filter-value="2">2星</button>
+          <button type="button" class="filter-btn" data-filter-type="difficulty" data-filter-value="3">3星</button>
+          <button type="button" class="filter-btn" data-filter-type="difficulty" data-filter-value="4">4星</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <div style="font-size:12px; font-weight:600; margin-bottom:8px; color:var(--muted);">種類</div>
+        <div class="filter-options">
+          <button type="button" class="filter-btn active" data-filter-type="tag" data-filter-value="all">全部</button>
+          <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="WEB">WEB</button>
+          <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="CRYPTO">CRYPTO</button>
+          <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="MISC">MISC</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <div style="font-size:12px; font-weight:600; margin-bottom:8px; color:var(--muted);">狀態</div>
+        <div class="filter-options">
+          <button type="button" class="filter-btn active" data-filter-type="status" data-filter-value="all">全部</button>
+          <button type="button" class="filter-btn" data-filter-type="status" data-filter-value="completed">已完成</button>
+          <button type="button" class="filter-btn" data-filter-type="status" data-filter-value="incomplete">未完成</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="questionsGrid">
       <?php foreach ($questions as $key => $q): ?>
         <?php $done = !empty($_SESSION['solved'][$key]); ?>
         <?php $meta = $questionMeta[$key] ?? ['difficulty' => '未知', 'tags' => ['N/A']]; ?>
-        <a class="card" href="<?php echo htmlspecialchars($q['url'], ENT_QUOTES, 'UTF-8'); ?>" target="_blank" rel="noopener noreferrer">
+        <?php $diffNum = preg_match('/(\d)星/', $meta['difficulty'], $m) ? $m[1] : '0'; ?>
+        <a class="card <?php echo $done ? 'completed' : ''; ?>" 
+           href="<?php echo htmlspecialchars($q['url'], ENT_QUOTES, 'UTF-8'); ?>" 
+           target="_blank" rel="noopener noreferrer"
+           data-question-key="<?php echo htmlspecialchars($key, ENT_QUOTES, 'UTF-8'); ?>"
+           data-difficulty="<?php echo $diffNum; ?>"
+           data-tags="<?php echo htmlspecialchars(implode(',', $meta['tags']), ENT_QUOTES, 'UTF-8'); ?>"
+           data-status="<?php echo $done ? 'completed' : 'incomplete'; ?>">
           <div class="title"><?php echo htmlspecialchars($q['label'], ENT_QUOTES, 'UTF-8'); ?></div>
           <div class="meta"><?php echo htmlspecialchars($q['url'], ENT_QUOTES, 'UTF-8'); ?></div>
-          <div class="difficulty">難度：<?php echo htmlspecialchars($meta['difficulty'], ENT_QUOTES, 'UTF-8'); ?></div>
+          <div class="difficulty"><?php echo htmlspecialchars($meta['difficulty'], ENT_QUOTES, 'UTF-8'); ?></div>
           <div class="tags">
             <?php foreach ($meta['tags'] as $tag): ?>
-              <span class="tag"><?php echo htmlspecialchars($tag, ENT_QUOTES, 'UTF-8'); ?></span>
+              <span class="tag <?php echo strtolower($tag); ?>"><?php echo htmlspecialchars($tag, ENT_QUOTES, 'UTF-8'); ?></span>
             <?php endforeach; ?>
           </div>
-          <div class="badge <?php echo $done ? 'ok' : ''; ?>">
-            <?php echo $done ? '已完成' : '未完成'; ?>
-          </div>
+          <!-- <div class="badge <?php echo $done ? 'ok' : ''; ?>">
+            <?php echo $done ? '✓ 已完成' : '未完成'; ?>
+          </div> -->
         </a>
       <?php endforeach; ?>
     </section>
   </main>
+
+  <script>
+    const filterState = {
+      difficulty: 'all',
+      tag: 'all',
+      status: 'all'
+    };
+
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const filterType = this.dataset.filterType;
+        const filterValue = this.dataset.filterValue;
+
+        document.querySelectorAll(`[data-filter-type="${filterType}"]`).forEach(b => {
+          b.classList.remove('active');
+        });
+        this.classList.add('active');
+
+        filterState[filterType] = filterValue;
+        applyFilters();
+      });
+    });
+
+    function applyFilters() {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const cardDifficulty = card.dataset.difficulty;
+        const cardTags = card.dataset.tags.split(',');
+        const cardStatus = card.dataset.status;
+
+        let show = true;
+
+        if (filterState.difficulty !== 'all' && cardDifficulty !== filterState.difficulty) {
+          show = false;
+        }
+
+        if (filterState.tag !== 'all' && !cardTags.includes(filterState.tag)) {
+          show = false;
+        }
+
+        if (filterState.status !== 'all' && cardStatus !== filterState.status) {
+          show = false;
+        }
+
+        card.classList.toggle('hidden', !show);
+      });
+    }
+  </script>
 </body>
 </html>

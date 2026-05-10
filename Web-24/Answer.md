@@ -4,10 +4,10 @@
 XLSX 檔案中包含隱藏的工作表。請找到並解碼隱藏工作表中的資訊。
 
 ## 難度
-★★★☆☆（3星）
+★★☆☆☆（2星）
 
 ## 種類
-MEDIA, MISC
+MISC
 
 ## 建議工具
 - CyberChef（From Base64 / From Hex / URL Decode 等）

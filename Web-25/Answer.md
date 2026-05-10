@@ -4,10 +4,10 @@
 SVG 向量圖中藏有隱藏的文本元素。請下載 SVG 檔案，檢查其原始碼。
 
 ## 難度
-★★☆☆☆（2星）
+★☆☆☆☆（1星）
 
 ## 種類
-MEDIA, MISC
+MISC
 
 ## 建議工具
 - CyberChef（From Base64 / From Hex / URL Decode 等）

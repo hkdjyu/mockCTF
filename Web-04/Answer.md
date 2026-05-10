@@ -4,10 +4,10 @@
 頁面樣式檔中藏有看似無意義的字串。請從 Network 找出 CSS 內的編碼資料，還原出最終旗標。
 
 ## 難度
-★★☆☆☆（2星）
+★☆☆☆☆（1星）
 
 ## 種類
-WEB, DEVTOOL, CRYPTO
+WEB
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）

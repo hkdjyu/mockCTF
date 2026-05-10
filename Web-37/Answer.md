@@ -1,13 +1,12 @@
-# ✅ Web-37 解題說明 — FLAC Tag 隱寫
-
+# ✅ Web-37 解題說明 — Telegraph
 ## 題目描述
 FLAC 除了音訊資料，還可包含 Vorbis Comment 與其他 tag。此題線索可能是文字標籤，或需把音訊節奏轉成摩斯碼進一步解讀。
 
 ## 難度
-★★★☆☆（3星）
+★★☆☆☆（2星）
 
 ## 種類
-WEB, MEDIA, CRYPTO
+MISC
 
 ## 建議工具
 - 瀏覽器 DevTools（Network）
@@ -20,6 +19,7 @@ WEB, MEDIA, CRYPTO
 2. 下載 `code.flac`。
 3. 先看音訊 metadata 是否已有可疑字串。
 4. 若提示與摩斯碼有關，利用波形長短節奏轉成 `.-` 序列。
+   （可利用spectrogram或wavacity）
 5. 用 CyberChef 或 Morse 解碼器還原文字，再組成旗標。
 
 ## 驗證與常見卡點

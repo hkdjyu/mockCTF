@@ -4,10 +4,10 @@
 WebP 圖片可能在 metadata 或亮度層裡藏有資訊。此題需先取得圖檔，再透過調整顯示或檢查 metadata 找出隱藏文字。
 
 ## 難度
-★★★☆☆（3星）
+★★☆☆☆（2星）
 
 ## 種類
-WEB, MEDIA, STENO
+MISC
 
 ## 建議工具
 - 瀏覽器 DevTools（Network）
@@ -18,7 +18,7 @@ WEB, MEDIA, STENO
 1. 開啟 `http://localhost:8034`。
 2. 下載 `paraglide.webp`。
 3. 先檢查 metadata（EXIF/XMP）欄位是否有可疑字串。
-4. 若 metadata 無明顯結果，調整 Levels/Contrast 檢查暗區或角落。
+4. 若 metadata 無明顯結果，使用LunaPic調整 Levels/Contrast 檢查暗區或角落。
 5. 讀取隱藏字串並整理成旗標格式。
 
 ## 驗證與常見卡點

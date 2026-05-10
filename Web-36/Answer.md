@@ -1,13 +1,13 @@
-# ✅ Web-36 解題說明 — MKV 附件隱寫
+# ✅ Web-36 解題說明 — MKV隱寫
 
 ## 題目描述
 Matroska（MKV）容器可附帶附件、章節與額外 metadata。此題線索不在影片畫面本身，而在容器的隱藏結構內。
 
 ## 難度
-★★★★☆（4星）
+★☆☆☆☆（1星）
 
 ## 種類
-WEB, MEDIA, STENO, RE
+MISC
 
 ## 建議工具
 - 瀏覽器 DevTools（Network）

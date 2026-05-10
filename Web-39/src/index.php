@@ -173,7 +173,7 @@
         <h1>光譜圖隱寫</h1>
         <p class="lead">在這類題目中，關鍵線索不一定直接出現在波形或檔名，而是藏在「時間-頻率」視角下的圖像資訊。理解 Spectrogram 的閱讀方式，通常就能大幅縮短解題時間。</p>
         <audio controls>
-          <source src="/files/rain.mp3" type="audio/mp3">
+          <source src="/files/rain.wav" type="audio/wav">
           您的瀏覽器不支援音訊播放，請下載檔案後使用適當的播放器收聽。
         </audio>
       </article>

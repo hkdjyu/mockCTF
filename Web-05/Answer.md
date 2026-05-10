@@ -4,10 +4,10 @@
 網站會把除錯資料存在瀏覽器本機儲存。請在 DevTools 的儲存區找到可疑值，並用 CyberChef 轉換取得旗標。
 
 ## 難度
-★★☆☆☆（2星）
+★☆☆☆☆（1星）
 
 ## 種類
-WEB, DEVTOOL
+WEB
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）

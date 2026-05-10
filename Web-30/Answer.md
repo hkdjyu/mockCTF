@@ -4,10 +4,10 @@
 最後的終極挑戰將多種檔案分析技巧綜合在一起，但這次所有線索都被包進同一個 `compress.zip`。玩家需要先解壓，再按順序分析裡面的四個檔案。
 
 ## 難度
-★★★★☆（4星）
+★★☆☆☆（2星）
 
 ## 種類
-MISC, MEDIA, CRYPTO
+MISC
 
 ## 建議工具
 - CyberChef（From Base64 / From Hex / URL Decode 等）
@@ -20,7 +20,7 @@ MISC, MEDIA, CRYPTO
 3. 解壓縮後，可以得到 4 個檔案：
    - `part1.txt`
    - `part2.csv`
-   - `part3.png`
+   - `part3.svg`
    - `part4.mp3`
 
 4. **提取 Part 1 (TXT - Hex)**
@@ -33,10 +33,9 @@ MISC, MEDIA, CRYPTO
    - 第二列含 Base64 編碼
    - 用 CyberChef `From Base64` 解碼：`multi_format`
 
-6. **提取 Part 3 (PNG - Metadata)**
-   - 將 `part3.png` 上傳到線上圖片 metadata 工具（例如 `https://www.metadata2go.com/` 或 `https://exif.tools/`）
-   - 找到 PNG 的 `Comment`（tEXt）欄位，讀取 Base64 字串
-   - 用 CyberChef `From Base64` 解碼，得到：`_maze`
+6. **提取 Part 3 (SVG - QR Code)**
+   - 將 `part3.svg` 上傳到線上QR code decoder 工具（例如 `https://qrcoderaptor.com/`）
+   - 找到字串`_maze`
 
 7. **提取 Part 4 (MP3 - ID3 Comment)**
    - 將 `part4.mp3` 上傳到線上音訊 metadata 工具（例如 `https://www.metadata2go.com/`）
@@ -51,6 +50,7 @@ MISC, MEDIA, CRYPTO
 - 驗證方式：最終輸出需符合 `flag{...}` 格式，且與題目提示一致。
 - 常見卡點：Base64 可能是 URL-safe 版本，必要時先補 `=` 再解碼。
 - 常見卡點：Hex 需先去除空白與非 0-9A-F 字元。
+- 常見卡點：QR Code Decode 除了可以使用電話相機，也有線上工具。
 - 常見卡點：請檢查所有 metadata 欄位，不要只看單一欄位。
 
 ## 學習重點

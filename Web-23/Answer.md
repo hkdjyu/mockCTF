@@ -4,10 +4,10 @@
 年度報告書的 PDF 檔案在其元數據中隱藏了機密資訊。請下載並檢查檔案的元數據。
 
 ## 難度
-★★★☆☆（3星）
+★☆☆☆☆（1星）
 
 ## 種類
-MEDIA, MISC
+MISC
 
 ## 建議工具
 - CyberChef（From Base64 / From Hex / URL Decode 等）

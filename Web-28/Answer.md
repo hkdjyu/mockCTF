@@ -4,10 +4,10 @@
 MP3 音訊檔案的 ID3 標籤中隱藏了機密資訊。請下載檔案並檢查其 ID3 元數據。
 
 ## 難度
-★★☆☆☆（2星）
+★☆☆☆☆（1星）
 
 ## 種類
-MEDIA, MISC
+MISC
 
 ## 建議工具
 - CyberChef（From Base64 / From Hex / URL Decode 等）

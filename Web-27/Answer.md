@@ -1,13 +1,13 @@
-# ✅ Web-27 解題說明 — 位圖隱寫
+# ✅ Web-27 解題說明 — Mario 像素檔案
 
 ## 題目描述
 BMP 位圖檔案使用隱寫方式藏了線索。這題假設學生不寫程式，改用線上工具完成。
 
 ## 難度
-★★★★☆（4星）
+★★★☆☆（3星）
 
 ## 種類
-MEDIA, STENO
+MISC
 
 ## 建議工具
 - CyberChef（From Base64 / From Hex / URL Decode 等）

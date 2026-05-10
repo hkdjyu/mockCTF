@@ -4,10 +4,10 @@
 GIF 支援多幀動畫，線索可能只出現在其中某一幀，或藏在 comment extension。挑戰者需要逐幀檢查而不是只看預覽畫面。
 
 ## 難度
-★★★☆☆（3星）
+★★☆☆☆（2星）
 
 ## 種類
-WEB, MEDIA, STENO
+MISC
 
 ## 建議工具
 - 瀏覽器 DevTools（Network）
@@ -17,7 +17,7 @@ WEB, MEDIA, STENO
 ## 解題步驟
 1. 開啟 `http://localhost:8033`。
 2. 下載題目提供的 GIF 檔案。
-3. 使用分幀工具逐幀查看影像內容。
+3. 使用分幀工具 (https://ezgif.com/split) 逐幀查看影像內容。
 4. 若畫面沒有明顯字串，檢查 GIF comment extension 或附加資料。
 5. 取得線索後還原成完整旗標。
 

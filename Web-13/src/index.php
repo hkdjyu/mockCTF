@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+if (isset($_GET['route']) && $_GET['route'] === 'staff-preview') {
+    header('Content-Type: application/json; charset=UTF-8');
+    echo json_encode([
+        'message' => 'ZmxhZ3toYXNoX3JvdXRlc19jYW5faGlkZV9wYXRoc30='
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+?><!DOCTYPE html>
 <html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
@@ -39,13 +47,30 @@
 
     <script>
         const routes = {
-            '#notice': '公開資訊：本頁沒有旗標。',
-            '#staff-preview': decodeURIComponent('ZmxhZ3toYXNoX3JvdXRlc19jYW5faGlkZV9wYXRoc30%3D')
+            '#notice': '公開資訊：本頁沒有旗標。'
         };
 
-        function render() {
+        async function render() {
             const hash = window.location.hash || '#none';
             const result = document.getElementById('result');
+
+            if (hash === '#staff-preview') {
+                result.textContent = '正在載入內部片段...';
+                try {
+                    const resp = await fetch('?route=staff-preview', { cache: 'no-store' });
+                    if (!resp.ok) {
+                        result.textContent = '載入失敗。';
+                        return;
+                    }
+
+                    const data = await resp.json();
+                    result.textContent = data.message || '找不到對應片段。';
+                } catch (error) {
+                    result.textContent = '載入失敗。';
+                }
+                return;
+            }
+
             result.textContent = routes[hash] || '找不到對應片段。';
         }
 

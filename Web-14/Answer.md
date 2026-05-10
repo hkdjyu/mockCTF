@@ -4,10 +4,10 @@
 開發者聲稱提示早已刪除，但瀏覽器可能仍保留舊版本資源。請從快取中找出被遺忘的內容，還原最終旗標。
 
 ## 難度
-★★★☆☆（3星）
+★★☆☆☆（2星）
 
 ## 種類
-WEB, DEVTOOL
+WEB, CRYPTO
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）
@@ -18,8 +18,13 @@ WEB, DEVTOOL
 1. 開啟 `http://localhost:8014`，按 `F12` 進入 DevTools。
 2. 前往 `Application` → `Cache Storage`。
 3. 找到 `web14-static-v1`，裡面會有 `/legacy/app.v1.js`。
-4. 開啟該舊版檔案，找到 Base64 字串：`ZmxhZ3tjYWNoZV9zdG9yYWdlX2tlZXBzX2hpc3Rvcnl9`。
-5. 將字串貼到 CyberChef，使用 `From Base64` 解碼。
+4. 開啟該舊版檔案，找到
+```
+// archived ciphertext: 37496b17ad7ff6e9137bc0b7011c7362861d1015e62a675e453b80887212a957274f571840fd16be904d8f1a3039d12f
+// archived key and IV: e98099e698afe5af86e991b0e596b22e
+// archived encryption method: AES-128-CBC
+```
+5. 將字串貼到 CyberChef，使用`AES Decrypt` 和 `From Base64` 解碼。
 
 ## 驗證與常見卡點
 - 驗證方式：最終輸出需符合 `flag{...}` 格式，且與題目提示一致。
@@ -31,6 +36,8 @@ WEB, DEVTOOL
 - 瀏覽器快取可能留下舊版靜態資源。
 - 「已刪除」不代表使用者端完全拿不到。
 - Cache Storage 是偵查前端舊資料的重要位置。
+- 留意加密方式，需要有KEY 和 Initialization Vector (IV)
+- 一般而言Key是不公開，而IV是可以公開的。
 
 ## Flag
 `flag{cache_storage_keeps_history}`

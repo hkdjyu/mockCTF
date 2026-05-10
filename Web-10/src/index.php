@@ -16,13 +16,13 @@
     localStorage.setItem('lang', 'zh');
 
     // 從 sessionStorage 取最後一段
-    sessionStorage.setItem('flag_part4', 'ultimate_dev_detective}');
+    sessionStorage.setItem('flag_part3', 'ultimate_dev_detective}');
 
-    // 發起 fetch 取第二、三段
+    // 發起 fetch 取第二段
     fetch('/api/hint.php')
       .then(res => res.json())
       .then(data => {
-        // part2, part3 隱藏在 data.debug_xyz 欄位
+        // part2隱藏在 data.debug_xyz 欄位
         document.getElementById('hint').textContent = `Status: ${data.status}`;
       });
 

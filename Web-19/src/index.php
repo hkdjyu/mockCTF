@@ -11,7 +11,7 @@
     <p id="output">正在查詢報告...</p>
 
     <script>
-        fetch('/api/report.php?id=1')
+        fetch('/api/report.php?id=1&view=normal')
             .then(res => res.json())
             .then(data => {
                 document.getElementById('output').textContent = `${data.status}: ${data.message}`;

@@ -1,13 +1,13 @@
-# ✅ Web-38 解題說明 — LSB 影像隱寫術
+# ✅ Web-38 解題說明 — LSB Steganography
 
 ## 題目描述
 此題把資訊藏在圖片像素的最低有效位元（LSB）。圖片外觀看起來正常，但每個像素 bit 被微調後可拼出可讀內容。
 
 ## 難度
-★★★☆☆（3星）
+★★☆☆☆（2星）
 
 ## 種類
-WEB, MEDIA, STENO
+MISC
 
 ## 建議工具
 - 瀏覽器 DevTools（Network）

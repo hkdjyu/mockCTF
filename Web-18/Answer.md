@@ -4,10 +4,10 @@
 你眼前看到的畫面，未必就是伺服器真正回傳的內容。請找出攔截請求的機制，並從快取或腳本中還原真相。
 
 ## 難度
-★★★★☆（4星）
+★☆☆☆☆（1星）
 
 ## 種類
-WEB, DEVTOOL, MISC
+WEB
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）

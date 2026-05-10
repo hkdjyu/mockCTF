@@ -1,13 +1,13 @@
-# ✅ Web-26 解題說明 — 背景 PNG 元數據
+# ✅ Web-26 解題說明 — 背景
 
 ## 題目描述
 這是一個看起來像食記部落格的頁面，背景圖 `background.png` 內藏有隱藏的 PNG 文本元數據。請下載檔案並提取元數據。
 
 ## 難度
-★★★☆☆（3星）
+★★☆☆☆（2星）
 
 ## 種類
-MEDIA, STENO
+MISC
 
 ## 建議工具
 - CyberChef（From Base64 / From Hex / URL Decode 等）

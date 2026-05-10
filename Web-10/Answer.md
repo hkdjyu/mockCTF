@@ -4,10 +4,10 @@
 最後最難題結合多個 DevTools 功能：從 Storage、Network、Console 各地蒐集碎片，拼組後再做多層編碼解碼。
 
 ## 難度
-★★★★☆（4星）
+★★☆☆☆（2星）
 
 ## 種類
-WEB, DEVTOOL, CRYPTO, MISC
+WEB
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）
@@ -23,15 +23,15 @@ WEB, DEVTOOL, CRYPTO, MISC
 
 **sessionStorage 取最後一段：**
 - `Application` → `Session Storage`
-- 找到 `flag_part4: ultimate_dev_detective}`
+- 找到 `flag_part3: ultimate_dev_detective}`
 
 ### 2. 使用 Network 檢查 API 呼叫
 
 - 在 `Network` 篩選 `Fetch/XHR`
 - 找 `/api/hint.php` 的 Response
-- 取出 JSON 中 `debug_xyz` 的值：`emi_`（第二、三段）
+- 取出 JSON 中 `debug_xyz` 的值：`emi_`（第二段）
 
-### 3. 組裝四段
+### 3. 組裝三段
 
 ```
 part1 + part2+3 + part4
@@ -40,33 +40,13 @@ part1 + part2+3 + part4
 ```
 
 ### 4. 在 CyberChef 多層解碼
-
-1. 將組裝字串先做 `To Base64`
-   ```
-   ZmxhZ3tlbWlfdWx0aW1hdGVfZGV2X2RldGVjdGl2ZX0=
-   ```
-
-2. 再做 `To URL` (Encode)
-   ```
-   ZmxhZ3tlbWlfdWx0aW1hdGVfZGV2X2RldGVjdGl2ZX0%3D
-   ```
-
-3. 再做 `To Base64` (Encode)
-   ```
-   Wm14aFozdGxiV2xmZFd4MGFXMWhkR1ZmWkdWMlgyUmxkR1ZqZEdsMlpYMCUzRA==
-   ```
-
-4. **反向解碼（CyberChef 中）：**
-   - 貼上最終加密字串：`Wm14aFozdGxiV2xmZFd4MGFXMWhkR1ZmWkdWMlgyUmxkR1ZqZEdsMlpYMCUzRA==`
+**反向解碼（CyberChef 中）：**
+   - 貼上最終加密字串：`ZmxhZ3toaWRkZW5fanNvbl9maWVsZF9mb3VuZH0=`
    - 套用 `From Base64`
-   - 再套用 `URL Decode`
-   - 最後 `From Base64`
    - 得到： `flag{emi_ultimate_dev_detective}`
 
 ## 驗證與常見卡點
 - 驗證方式：最終輸出需符合 `flag{...}` 格式，且與題目提示一致。
-- 常見卡點：Base64 可能是 URL-safe 版本，必要時先補 `=` 再解碼。
-- 常見卡點：Hex 需先去除空白與非 0-9A-F 字元。
 - 常見卡點：確認在正確網域下重新整理後再讀取 Storage。
 - 常見卡點：改參數後要看 Response 內容，不只看狀態碼。
 

@@ -7,7 +7,7 @@
 ★★★☆☆（3星）
 
 ## 種類
-WEB, MEDIA, STENO
+MISC
 
 ## 建議工具
 - 瀏覽器 DevTools（Network）

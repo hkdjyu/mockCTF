@@ -160,7 +160,7 @@
   <main class="wrap">
     <section class="card">
       <h1>Speech</h1>
-      <p class="subtitle">請打開 F12 的 Network 下載原始檔案。</p>
+      <p class="subtitle">演講詞</p>
 
       <div class="actions">
         <button id="reloadBtn" type="button">重新讀取檔案</button>

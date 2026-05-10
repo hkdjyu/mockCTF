@@ -1,4 +1,4 @@
-# ✅ Web-40 解題說明 — 多媒體綜合隱寫
+# ✅ Web-40 解題說明 — Speech
 
 ## 題目描述
 最終題刻意讓直接下載失效，挑戰者需改走 DevTools Network 取得真正檔案，再進行資料轉換與格式判斷，完成最後旗標還原。
@@ -7,7 +7,7 @@
 ★★★★☆（4星）
 
 ## 種類
-WEB, MEDIA, MISC
+WEB, MISC
 
 ## 建議工具
 - 瀏覽器 DevTools（Network）

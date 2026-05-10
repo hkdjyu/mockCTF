@@ -4,10 +4,10 @@
 最終挑戰將線索分散在頁面 DOM、瀏覽器儲存區與 API 回應之中。請蒐集所有碎片，依照正確順序拼組，並完成多層解碼還原最終旗標。
 
 ## 難度
-★★★★☆（4星）
+★★☆☆☆（2星）
 
 ## 種類
-WEB, DEVTOOL, MISC
+WEB
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）

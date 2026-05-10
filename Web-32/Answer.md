@@ -7,7 +7,7 @@
 ★★★☆☆（3星）
 
 ## 種類
-WEB, MEDIA, STENO, CRYPTO
+MISC, CRYPTO
 
 ## 建議工具
 - 瀏覽器 DevTools（Network）
@@ -18,7 +18,7 @@ WEB, MEDIA, STENO, CRYPTO
 1. 開啟 `http://localhost:8032`。
 2. 下載 `PNG.png`（必要時也可比對其他同頁檔案）。
 3. 上傳到 metadata 工具，查看 `Artist`、`Comment`、`tEXt` 欄位。
-4. 找到可疑字串後，使用 CyberChef 做 ROT/位移轉換。
+4. 找到可疑字串後，使用 CyberChef 做 ROT/位移轉換(amount = -5)。
 5. 還原出 `flag{...}`。
 
 ## 驗證與常見卡點

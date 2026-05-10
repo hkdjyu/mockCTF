@@ -4,10 +4,10 @@
 網站會把部分資料存進瀏覽器資料庫。請在前端資料儲存區中找到不該公開的測試資訊，並分析出旗標。
 
 ## 難度
-★★★☆☆（3星）
+★☆☆☆☆（1星）
 
 ## 種類
-WEB, DEVTOOL, MISC
+WEB
 
 ## 建議工具
 - 瀏覽器 DevTools（Elements / Network / Sources / Application / Console）
