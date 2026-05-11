@@ -15,11 +15,12 @@ WEB
 - Hex 工具（hexed.it）
 
 ## 解題步驟
-1. 開啟 `http://localhost:8003`，在 `Sources` 找主要腳本。
-2. 搜尋 `if (`、`password`、`token`、`checkLogin` 等關鍵字。
-3. 找到比對值後，觀察是否經過 ROT13、Hex 或字串反轉。
-4. 將可疑值貼入 CyberChef，套用對應轉換還原明文。
-5. 取得 `flag{...}` 即完成。
+1. 開啟 `http://localhost:8003`，在 `Sources` 找主要腳本Index。
+2. Index搜尋 `if (`、`password`、`token`、`checkLogin` 等關鍵字，沒有特別，注意到`src="auth.js`
+3. 開啟`auth.js`，留意到`const gateToken = "synt{sebagraq_nhgu_vf_abg_frphevgl}";`
+4. 找到比對值後，觀察是否經過 ROT13、Hex 或字串反轉。
+5. 將可疑值貼入 CyberChef，套用ROT13、Hex 或字串反轉，嘗試轉換還原明文。
+6. 取得 `flag{...}` 即完成。
 
 ## 驗證與常見卡點
 - 驗證方式：最終輸出需符合 `flag{...}` 格式，且與題目提示一致。

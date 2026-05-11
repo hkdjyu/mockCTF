@@ -84,7 +84,7 @@ goto :menu
 :logs
 set "SERVICE=%~2"
 if "%SERVICE%"=="" (
-  set /p SERVICE=輸入服務名稱 (例如 web01，留空查看全部): 
+  set /p SERVICE=輸入服務名稱 ^(例如 web01，留空查看全部^): 
 )
 if "%SERVICE%"=="" (
   docker compose logs --tail=120
@@ -112,7 +112,7 @@ goto :menu
 :cleanone
 set "SERVICE=%~2"
 if "%SERVICE%"=="" (
-  set /p SERVICE=輸入服務名稱 (例如 web27): 
+  set /p SERVICE=輸入服務名稱 ^(例如 web27^): 
 )
 if "%SERVICE%"=="" (
   echo [ERROR] 未提供服務名稱。
@@ -156,7 +156,7 @@ goto :menu
 :restartone
 set "SERVICE=%~2"
 if "%SERVICE%"=="" (
-  set /p SERVICE=輸入服務名稱 (例如 web27): 
+  set /p SERVICE=輸入服務名稱 ^(例如 web27^): 
 )
 if "%SERVICE%"=="" (
   echo [ERROR] 未提供服務名稱。

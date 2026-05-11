@@ -1,13 +1,33 @@
 <?php
 session_start();
 
+$isHttps = (
+  (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
+  || (isset($_SERVER['SERVER_PORT']) && (string)$_SERVER['SERVER_PORT'] === '443')
+  || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strtolower((string)$_SERVER['HTTP_X_FORWARDED_PROTO']) === 'https')
+);
+$scheme = $isHttps ? 'https' : 'http';
+
+$rawHost = $_SERVER['HTTP_X_FORWARDED_HOST']
+  ?? $_SERVER['HTTP_HOST']
+  ?? $_SERVER['SERVER_NAME']
+  ?? 'localhost';
+
+// Proxies may provide a comma-separated host chain; use the original client-facing host.
+$rawHost = trim(explode(',', (string)$rawHost)[0]);
+
+$resolvedHost = parse_url($scheme . '://' . $rawHost, PHP_URL_HOST);
+if (!is_string($resolvedHost) || $resolvedHost === '') {
+  $resolvedHost = preg_replace('/:\d+$/', '', (string)$rawHost);
+}
+
 $questions = [];
 for ($i = 1; $i <= 40; $i++) {
     $id = str_pad((string)$i, 2, '0', STR_PAD_LEFT);
     $key = "web{$id}";
     $questions[$key] = [
         'label' => "Web-{$id}",
-        'url' => 'http://localhost:' . (8000 + $i),
+    'url' => $scheme . '://' . $resolvedHost . ':' . (8000 + $i),
     ];
 }
 
