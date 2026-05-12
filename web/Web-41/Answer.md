@@ -4,10 +4,10 @@
 這是一條入門 SQL Injection 題。頁面把使用者輸入的 `username` 與 `password` 直接拼接到查詢語句內，目標是繞過正常密碼驗證，直接以 `admin` 身分登入。
 
 ## 難度
-★★☆☆☆（2星）
+★★★☆☆（3星）
 
 ## 種類
-WEB, SQL Injection
+WEB, SQL
 
 ## 建議工具
 - 瀏覽器

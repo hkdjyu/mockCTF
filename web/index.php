@@ -82,11 +82,11 @@ for ($i = 1; $i <= 60; $i++) {
       'web38' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
       'web39' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['Forensics']],
       'web40' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'Forensics']],
-      'web41' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web42' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web43' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web44' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web45' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+      'web41' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
+      'web42' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
+      'web43' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
+      'web44' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
+      'web45' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'SQL']],
       'web46' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
       'web47' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
       'web48' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
@@ -145,6 +145,11 @@ $flagsByQuestion = [
     'web38' => 'flag{LSB_in_picture}',
     'web39' => 'flag{spectrogram_hard}',
     'web40' => 'flag{hello_world}',
+    'web41' => 'flag{sqli_login_bypass}',
+    'web42' => 'flag{numeric_pin_sqli_bypass}',
+    'web43' => 'flag{line_comment_login_bypass}',
+    'web44' => 'flag{inline_comment_blacklist_bypass}',
+    'web45' => 'flag{inline_comment_condition_bypass}',
 ];
 
 $message = '';
@@ -443,6 +448,7 @@ $totalCount = count($questions);
     .tag.crypto { background: #f97316; }
     .tag.misc { background: #8b5cf6; }
     .tag.forensics { background: #10b981; }
+    .tag.sql { background: #4268af; }
 
     .badge {
       font-size: 12px;
@@ -516,6 +522,7 @@ $totalCount = count($questions);
           <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="CRYPTO">CRYPTO</button>
           <!-- <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="MISC">MISC</button> -->
           <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="Forensics">Forensics</button>
+          <button type="button" class="filter-btn " data-filter-type="tag" data-filter-value="SQL">SQL</button>
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 <?php
 $users = [
-    ['username' => 'student', 'password' => 'library2026', 'role' => 'student'],
+    ['username' => 'student', 'password' => '12345678', 'role' => 'student'],
     ['username' => 'guest', 'password' => 'welcome123', 'role' => 'guest'],
     ['username' => 'admin', 'password' => 'super-secret-admin-password', 'role' => 'admin'],
 ];
@@ -317,8 +317,7 @@ $flag = 'flag{sqli_login_bypass}';
         <h2 style="margin-top: 18px;">觀察重點</h2>
         <ul>
           <li>系統會把你輸入的值直接放進 <code>WHERE</code> 子句。</li>
-          <li>目標不是登入任何帳號，而是讓系統誤判成 <code>admin</code>。</li>
-          <li>這類漏洞在真實環境應以 prepared statements 防止。</li>
+          <li>目標不是登入任何帳號。</li>
         </ul>
       </aside>
     </section>
