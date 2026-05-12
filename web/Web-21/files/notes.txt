@@ -1,0 +1,9 @@
+=== 英文科筆記 ===
+Week 1: Introduction to literature
+Week 2: Poetry analysis
+Week 3: Narrative techniques
+
+=== 內部備註 ===
+Flag Part 1 (Hex): 666c61677b746578745f656e636f64696e
+Flag Part 2 (Base64): Z19jaGFpbn0=
+End of file
