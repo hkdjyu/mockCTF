@@ -1,4 +1,4 @@
-# ✅ Web-45 解題說明 — 員工ID查詢 Inline Comment Bypass
+# ✅ Web-45 解題說明 — 員工編號
 
 ## 題目描述
 系統要求輸入員工id才可查詢員工資料。後端查詢邏輯：
@@ -16,10 +16,10 @@ WHERE authorized = 0 AND employee_id = '<user_input>'
 你的目標是利用 inline comment (`/**/`) 混淆條件，繞過限制並查出 `E9001`。
 
 ## 難度
-★★★☆☆（3星）
+★★★★☆（4星）
 
 ## 種類
-WEB, SQL Injection, Inline Comment Bypass
+WEB, SQL
 
 ## 建議工具
 - 瀏覽器
@@ -45,7 +45,7 @@ WEB, SQL Injection, Inline Comment Bypass
 在輸入框填入：
 
 ```text
-E9001'/**/OR/**/1=1/*
+    E9001'/**/OR/**/1=1/*
 ```
 
 此 payload 會把查詢改寫為：

@@ -5,7 +5,7 @@ $seedUsers = [
     ['username' => 'teacher', 'password' => 'faculty123', 'role' => 'staff'],
 ];
 
-function buildDb(array $users): SQLite3
+function buildDb($users)
 {
     $db = new SQLite3(':memory:');
     $db->exec('CREATE TABLE members (username TEXT, password TEXT, role TEXT)');
@@ -21,10 +21,11 @@ function buildDb(array $users): SQLite3
     return $db;
 }
 
-function preprocessMySqlStyleComments(string $sql): string
+function preprocessMySqlStyleComments($sql)
 {
     // 模擬 MySQL `#` 單行註解，方便教學比較不同資料庫語法。
-    return preg_replace('/#.*$/m', '', $sql) ?? $sql;
+    $processedSql = preg_replace('/#.*$/m', '', $sql);
+    return ($processedSql !== null) ? $processedSql : $sql;
 }
 
 $submittedUsername = '';
@@ -86,7 +87,7 @@ if (!class_exists('SQLite3')) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web-43 Line Comment SQL Injection</title>
+  <title>Web-43 註釋？不了。</title>
   <style>
     :root {
       --bg: #f6efe9;

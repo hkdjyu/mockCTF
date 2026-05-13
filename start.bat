@@ -25,6 +25,7 @@ if defined CID (
 		docker compose restart web
 		if errorlevel 1 (
 			echo Failed to restart web service.
+			echo Did you start Docker Desktop?
 			set "STATUS=Failed: Could not restart web service."
 			set "EXITCODE=1"
 			goto :final

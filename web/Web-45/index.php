@@ -1,5 +1,5 @@
 <?php
-function buildEmployeeDb(): SQLite3
+function buildEmployeeDb()
 {
   $db = new SQLite3(':memory:');
   $db->exec('CREATE TABLE employees (id INTEGER, employee_id TEXT, name TEXT, dept TEXT, title TEXT, authorized INTEGER)');
@@ -93,7 +93,7 @@ if (!class_exists('SQLite3')) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web-45 Employee ID Inline Comment Bypass</title>
+  <title>Web-45 員工編號</title>
   <style>
     :root {
       --bg: #eff6f2;

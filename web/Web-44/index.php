@@ -6,7 +6,7 @@ $seedInvoices = [
     ['id' => 2653, 'order_no' => 'INT-2653', 'owner' => 'student', 'amount' => 1234, 'is_internal' => 1],
 ];
 
-function buildInvoiceDb(array $rows): SQLite3
+function buildInvoiceDb($rows)
 {
     $db = new SQLite3(':memory:');
     $db->exec('CREATE TABLE invoices (id INTEGER, order_no TEXT, owner TEXT, amount INTEGER, is_internal INTEGER)');
@@ -85,7 +85,7 @@ if (!class_exists('SQLite3')) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web-44 Inline Comment SQL Injection</title>
+  <title>Web-44 行內註解繞過</title>
   <style>
     :root {
       --bg: #eef4f8;

@@ -6,7 +6,7 @@
     ['username' => 'guest2', 'pin' => 0, 'role' => 'guest'],
   ];
 
-  function buildInMemoryDb(array $accounts): SQLite3
+  function buildInMemoryDb($accounts)
   {
     $db = new SQLite3(':memory:');
     $db->exec('CREATE TABLE accounts (username TEXT, pin INTEGER, role TEXT)');
@@ -72,7 +72,7 @@
 
       if ($matchedUsernameRow !== null || $firstRow !== null) {
         // 現實系統常以使用者輸入帳號作為主體，優先取同名帳號資料。
-        $loginResult = $matchedUsernameRow ?? $firstRow;
+        $loginResult = ($matchedUsernameRow !== null) ? $matchedUsernameRow : $firstRow;
         if ($loginResult['role'] === 'admin') {
           $message = '登入成功：系統將你識別為 admin。';
           $messageClass = 'success';

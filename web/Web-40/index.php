@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-HK">
 <head>
   <meta charset="UTF-8">
@@ -168,7 +168,7 @@
       </div>
 
       <div class="panel">
-        <textarea id="datContent" spellcheck="false" readonly>正在讀取 /files/speech.dat ...</textarea>
+        <textarea id="txtContent" spellcheck="false" readonly>正在讀取 /files/speech.dat ...</textarea>
       </div>
       <div id="statusText" class="status"></div>
 
@@ -179,17 +179,17 @@
   </main>
 
   <script>
-    const textarea = document.getElementById("datContent");
+    const textarea = document.getElementById("txtContent");
     const statusText = document.getElementById("statusText");
     const reloadBtn = document.getElementById("reloadBtn");
     const directDownloadBtn = document.getElementById("directDownloadBtn");
 
-    async function loadDatText() {
+    async function loadTxtText() {
       statusText.textContent = "讀取中...";
       statusText.className = "status";
 
       try {
-        const response = await fetch("/files/speech.dat", { cache: "no-store" });
+        const response = await fetch("./files/speech.dat", { cache: "no-store" });
         if (!response.ok) {
           throw new Error("HTTP " + response.status);
         }
@@ -205,7 +205,7 @@
       }
     }
 
-    reloadBtn.addEventListener("click", loadDatText);
+    reloadBtn.addEventListener("click", loadTxtText);
     directDownloadBtn.addEventListener("click", function (event) {
       event.preventDefault();
       alert("下載失敗");
@@ -222,7 +222,7 @@
       }
     });
 
-    loadDatText();
+    loadTxtText();
   </script>
 </body>
 </html>

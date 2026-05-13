@@ -31,78 +31,68 @@ if (!is_string($parsedHost) || $parsedHost === '') {
 
 $basePath = rtrim(str_replace('\\', '/', dirname((string)($_SERVER['SCRIPT_NAME'] ?? '/'))), '/');
 
-$questions = [];
-for ($i = 1; $i <= 60; $i++) {
-    $id = str_pad((string)$i, 2, '0', STR_PAD_LEFT);
-    $key = "web{$id}";
-    $questions[$key] = [
-        'label' => "Web-{$id}",
-        'url' => $scheme . '://' . $resolvedHost . $basePath . '/Web-' . $id,
-    ];
-}
-
-    $questionMeta = [
-      'web01' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
-      'web02' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
-      'web03' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
-      'web04' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
-      'web05' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
-      'web06' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB']],
-      'web07' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
-      'web08' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
-      'web09' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
-      'web10' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
-      'web11' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
-      'web12' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
-      'web13' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
-      'web14' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'CRYPTO']],
-      'web15' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
-      'web16' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
-      'web17' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'CRYPTO']],
-      'web18' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
-      'web19' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
-      'web20' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
-      'web21' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['Forensics']],
-      'web22' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB', 'Forensics']],
-      'web23' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['Forensics']],
-      'web24' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
-      'web25' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['Forensics']],
-      'web26' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
-      'web27' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['Forensics']],
-      'web28' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['Forensics']],
-      'web29' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['Forensics']],
-      'web30' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
-      'web31' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'Forensics']],
-      'web32' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['Forensics', 'CRYPTO']],
-      'web33' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
-      'web34' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
-      'web35' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['Forensics']],
-      'web36' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['Forensics']],
-      'web37' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
-      'web38' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
-      'web39' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['Forensics']],
-      'web40' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'Forensics']],
-      'web41' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
-      'web42' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
-      'web43' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
-      'web44' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
-      'web45' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'SQL']],
-      'web46' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web47' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web48' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web49' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web50' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web51' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web52' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web53' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web54' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web55' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web56' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web57' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web58' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web59' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-      'web60' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-    ];
+$questionMeta = [
+  'web01' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+  'web02' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+  'web03' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+  'web04' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+  'web05' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+  'web06' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB']],
+  'web07' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
+  'web08' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+  'web09' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+  'web10' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
+  'web11' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
+  'web12' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+  'web13' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+  'web14' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'CRYPTO']],
+  'web15' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+  'web16' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+  'web17' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'CRYPTO']],
+  'web18' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB']],
+  'web19' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
+  'web20' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB']],
+  'web21' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['Forensics']],
+  'web22' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['WEB', 'Forensics']],
+  'web23' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['Forensics']],
+  'web24' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
+  'web25' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['Forensics']],
+  'web26' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
+  'web27' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['Forensics']],
+  'web28' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['Forensics']],
+  'web29' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['Forensics']],
+  'web30' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
+  'web31' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'Forensics']],
+  'web32' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['Forensics', 'CRYPTO']],
+  'web33' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
+  'web34' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
+  'web35' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['Forensics']],
+  'web36' => ['difficulty' => '★☆☆☆☆（1星）', 'tags' => ['Forensics']],
+  'web37' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
+  'web38' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['Forensics']],
+  'web39' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['Forensics']],
+  'web40' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'Forensics']],
+  'web41' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
+  'web42' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
+  'web43' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
+  'web44' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
+  'web45' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'SQL']],
+  'web46' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'SQL']],
+  'web47' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'SQL']],
+  // 'web48' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  // 'web49' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  // 'web50' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  // 'web51' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  // 'web52' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  // 'web53' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  // 'web54' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  // 'web55' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  // 'web56' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  // 'web57' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  // 'web58' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  // 'web59' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  // 'web60' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+];
 
 $flagsByQuestion = [
     'web01' => 'flag{d3v_t00ls_4_th3_w1n}',
@@ -150,7 +140,20 @@ $flagsByQuestion = [
     'web43' => 'flag{line_comment_login_bypass}',
     'web44' => 'flag{inline_comment_blacklist_bypass}',
     'web45' => 'flag{inline_comment_condition_bypass}',
+    'web46' => 'flag{y0u_f0und_th3_fl4g_in_th3_pr0ducts}',
 ];
+
+// get the length of questions by counting the entries in $questionMeta
+$questions_amount = count($questionMeta);
+
+for ($i = 1; $i <= $questions_amount; $i++) {
+    $id = str_pad((string)$i, 2, '0', STR_PAD_LEFT);
+    $key = "web{$id}";
+    $questions[$key] = [
+        'label' => "Web-{$id}",
+        'url' => $scheme . '://' . $resolvedHost . $basePath . '/Web-' . $id,
+    ];
+}
 
 $message = '';
 $messageType = '';

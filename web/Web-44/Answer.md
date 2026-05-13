@@ -1,4 +1,4 @@
-# ✅ Web-44 解題說明 — Inline Comment 與黑名單繞過
+# ✅ Web-44 解題說明 — 行內註解繞過
 
 ## 題目描述
 這題模擬報表查詢 API：後端將 `invoice_id` 直接拼進 SQL，並用黑名單阻擋字串 `OR 1=1`。
@@ -9,7 +9,7 @@
 ★★★☆☆（3星）
 
 ## 種類
-WEB, SQL Injection
+WEB, SQL
 
 ## 建議工具
 - 瀏覽器

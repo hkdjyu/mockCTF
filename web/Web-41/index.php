@@ -14,16 +14,21 @@ function normalizeInput(string $value): string
     return $value;
 }
 
+function containsText(string $haystack, string $needle): bool
+{
+    return strpos($haystack, $needle) !== false;
+}
+
 function looksLikeTautology(string $value): bool
 {
     $normalized = normalizeInput($value);
 
-    return str_contains($normalized, "' or 1=1")
-        || str_contains($normalized, '" or 1=1')
-        || str_contains($normalized, "' or '1'='1")
-        || str_contains($normalized, '" or "1"="1')
-        || str_contains($normalized, "or 'a'='a")
-        || str_contains($normalized, 'or "a"="a');
+    return containsText($normalized, "' or 1=1")
+      || containsText($normalized, '" or 1=1')
+      || containsText($normalized, "' or '1'='1")
+      || containsText($normalized, '" or "1"="1')
+      || containsText($normalized, "or 'a'='a")
+      || containsText($normalized, 'or "a"="a');
 }
 
 function findUser(array $users, string $username, string $password): ?array

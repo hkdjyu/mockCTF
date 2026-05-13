@@ -1,4 +1,4 @@
-# ✅ Web-43 解題說明 — Line Comment SQL Injection
+# ✅ Web-43 解題說明 — 註釋？不了。
 
 ## 題目描述
 這題模擬常見登入漏洞：系統把 `username`、`password` 直接拼進查詢字串。
@@ -47,9 +47,23 @@ SELECT username, role FROM members WHERE username = 'admin'' AND password = '' O
 
 這樣會直接把密碼條件註解掉，查詢只剩 `username='admin'`，更符合本題設計的教學路徑。
 
+## 補充：為什麼 `admin" OR 1=1 #` 不一定成功
+這條 payload 在語法上可以成立，但在本題邏輯下通常不會穩定拿到 admin。
+
+原因是它會把條件放寬成「幾乎所有列都符合」，例如：
+
+```sql
+SELECT username, role FROM members WHERE username = "admin" OR 1=1
+```
+
+接著程式只會取查詢結果的第一筆資料作為登入身份，而不是特別挑 `admin` 那筆。
+若第一筆是 `student` 或其他帳號，就會出現「登入成功但不是 admin」的結果。
+
+所以在這題中，`OR 1=1` 屬於「過寬匹配」，不如直接把條件收斂到 `username = "admin"`，再用 `#` 註解截斷後面的密碼判斷，成功率會更高。
+
 ## 驗證與常見卡點
 - 驗證方式：頁面顯示 `Admin panel unlocked` 與旗標。
-- 常見卡點：忘記先用單引號結束原字串。
+- 常見卡點：忘記先用雙引號結束原字串。
 - 常見卡點：嘗試使用 `--` 會被系統阻擋。
 - 常見卡點：不同資料庫註解語法支援有差異；本題強制要求 `#`（MySQL 風格）來學習多資料庫差異。
 

@@ -34,7 +34,7 @@
         <h1>📄 筆記檔案備份</h1>
         <p>下方是本學期的各種筆記備份檔案。某個檔案可能包含編碼後的資訊。</p>
         <ul>
-            <li><a href="./download.php?file=notes.txt">📥 notes.txt</a></li>
+            <li><a href="./files/notes.txt" download>📥 notes.txt</a></li>
         </ul>
         <p>提示：檢查檔案內容，尋找多層編碼的片段。</p>
     </div>

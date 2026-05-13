@@ -1,4 +1,4 @@
-# ✅ Web-42 解題說明 — 局部修補失敗的 Numeric SQL Injection
+# ✅ Web-42 解題說明 — 舊系統登入
 
 ## 題目描述
 這題模擬真實維護情境：舊系統曾爆出 SQL Injection，開發者只先修了 `username`（把單引號做轉義），但仍把 `pin` 直接拼接進查詢。
