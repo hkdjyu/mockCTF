@@ -1,6 +1,6 @@
 ﻿<?php
 // Set a subtle hint in the HTTP response header
-header("X-Hint: The answer lies within...");
+// header("X-Hint: The answer lies within...");
 ?><!DOCTYPE html>
 <html lang="zh-TW">
 <head>

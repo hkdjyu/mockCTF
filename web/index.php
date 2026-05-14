@@ -1,5 +1,40 @@
 <?php
+
 session_start();
+
+// 1. 處理登出
+if (isset($_POST['logout'])) {
+    unset($_SESSION['username']);
+    header("Location: " . $_SERVER['PHP_SELF']); // 重新導向回首頁
+    exit;
+}
+
+// 2. 處理登入
+if (isset($_POST['set_username']) && trim($_POST['set_username']) !== '') {
+    $_SESSION['username'] = trim($_POST['set_username']);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+
+$isLoggedIn = isset($_SESSION['username']);
+$current_user = $isLoggedIn ? $_SESSION['username'] : '';
+
+// 1. 初始化 SQLite 資料庫
+try {
+    $db = new PDO('sqlite:ctf_progress.db');
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // 建立儲存已完成題目的資料表 (如果不存在)
+    $db->exec("CREATE TABLE IF NOT EXISTS solved_questions (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      username TEXT,           -- 儲存學生姓名或學號
+      question_key TEXT,       -- 儲存題目代碼 (如 web01)
+      solved_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(username, question_key) -- 確保同一個學生對同一題不會重複紀錄
+    )");
+} catch (PDOException $e) {
+    die("資料庫連線失敗: " . $e->getMessage());
+}
 
 $isHttps = (
   (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
@@ -79,9 +114,9 @@ $questionMeta = [
   'web45' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'SQL']],
   'web46' => ['difficulty' => '★★☆☆☆（2星）', 'tags' => ['WEB', 'SQL']],
   'web47' => ['difficulty' => '★★★★☆（4星）', 'tags' => ['WEB', 'SQL']],
-  // 'web48' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-  // 'web49' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
-  // 'web50' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
+  'web48' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
+  'web49' => ['difficulty' => '★★★☆☆（3星）', 'tags' => ['WEB', 'SQL']],
+  'web50' => ['difficulty' => '★★★★★（5星）', 'tags' => ['WEB', 'SQL']],
   // 'web51' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
   // 'web52' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
   // 'web53' => ['difficulty' => '☆☆☆☆☆（0星）', 'tags' => ['Draft']],
@@ -141,6 +176,9 @@ $flagsByQuestion = [
     'web44' => 'flag{inline_comment_blacklist_bypass}',
     'web45' => 'flag{inline_comment_condition_bypass}',
     'web46' => 'flag{y0u_f0und_th3_fl4g_in_th3_pr0ducts}',
+    'web48' => 'flag{L3v3l_1_un10n_b4s1cs}',
+    'web49' => 'flag{L3v3l_2_m4st3r_0f_sch3m4}',
+    'web50' => 'flag{un10n_sq1_1nj3ct10n_m4st3r}',
 ];
 
 // get the length of questions by counting the entries in $questionMeta
@@ -158,10 +196,7 @@ for ($i = 1; $i <= $questions_amount; $i++) {
 $message = '';
 $messageType = '';
 
-if (!isset($_SESSION['solved']) || !is_array($_SESSION['solved'])) {
-  $_SESSION['solved'] = [];
-}
-
+// 2. 處理 Flag 提交
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $flagInput = isset($_POST['flag']) ? trim((string)$_POST['flag']) : '';
 
@@ -178,9 +213,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if ($matchedQuestion !== null) {
-      $_SESSION['solved'][$matchedQuestion] = true;
-      $message = '驗證成功！已完成 ' . strtoupper($matchedQuestion) . '。';
-      $messageType = 'success';
+    // 插入包含用戶名的紀錄
+        $stmt = $db->prepare("INSERT OR IGNORE INTO solved_questions (username, question_key) VALUES (:user, :key)");
+        $stmt->execute([
+            ':user' => $current_user,
+            ':key' => $matchedQuestion
+        ]);
+        
+        $message = '驗證成功！' . $current_user . ' 已完成 ' . strtoupper($matchedQuestion) . '。';
+        $messageType = 'success';
     } else {
       $message = 'Flag 不正確，請再試一次。';
       $messageType = 'error';
@@ -188,7 +229,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   }
 }
 
-$solvedCount = count($_SESSION['solved']);
+// 3. 從資料庫讀取目前的進度以供畫面顯示
+$stmt = $db->prepare("SELECT question_key FROM solved_questions WHERE username = :user");
+$stmt->execute([':user' => $current_user]);
+$solvedFromDb = $stmt->fetchAll(PDO::FETCH_COLUMN);
+$solvedMap = array_fill_keys($solvedFromDb, true);
+$solvedCount = count($solvedFromDb);
 $totalCount = count($questions);
 ?>
 <!doctype html>
@@ -472,6 +518,82 @@ $totalCount = count($questions);
       display: none;
     }
 
+    /* 登入畫面專用樣式 */
+    .login-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 16px;
+    }
+
+    .login-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 40px 32px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(29, 45, 76, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-card h1 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 24px;
+    }
+
+    .login-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .login-card input[type="text"] {
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    .login-card button {
+      width: 100%;
+      padding: 14px;
+      font-size: 16px;
+    }
+
+    /* 儀表板頭部與登出按鈕樣式 */
+    .hero-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .user-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(0, 0, 0, 0.15);
+      padding: 6px 6px 6px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .logout-btn {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 6px 12px;
+      font-size: 13px;
+      border-radius: 999px;
+    }
+
+    .logout-btn:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
     @media (max-width: 700px) {
       form { grid-template-columns: 1fr; }
       button { padding: 12px; }
@@ -481,91 +603,115 @@ $totalCount = count($questions);
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="hero">
-      <h1>mockCTF Home</h1>
-      <p>在這裡快速跳轉題目，並輸入你找到的 Flag 以記錄已完成題目。</p>
-      <div class="meter">
-        完成進度：<?php echo $solvedCount; ?> / <?php echo $totalCount; ?>
+  <?php if (!$isLoggedIn): ?>
+    <div class="login-container">
+      <div class="login-card">
+        <h1>mockCTF 登入</h1>
+        <p>請輸入您的學生編號以記錄解題進度</p>
+        <form method="POST" style="display: block;">
+          <input type="text" name="set_username" placeholder="例如：s123456" required autocomplete="off">
+          <button type="submit">進入挑戰</button>
+        </form>
       </div>
-    </section>
-
-    <section class="panel">
-      <form method="post" action="" id="flagForm">
-        <input type="text" name="flag" placeholder="輸入 flag{...}" autocomplete="off">
-        <input type="hidden" name="scroll_position" id="scrollPosition" value="0">
-        <button type="submit">驗證 Flag</button>
-      </form>
-      <?php if ($message !== ''): ?>
-        <div class="msg <?php echo htmlspecialchars($messageType, ENT_QUOTES, 'UTF-8'); ?>">
-          <?php echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?>
-        </div>
-      <?php endif; ?>
-    </section>
-
-    <section class="filter-section">
-      <div class="filter-title">🔍 篩選</div>
-      
-      <div class="filter-group">
-        <div style="font-size:12px; font-weight:600; margin-bottom:8px; color:var(--muted);">難度</div>
-        <div class="filter-options">
-          <button type="button" class="filter-btn active" data-filter-type="difficulty" data-filter-value="all">全部</button>
-          <button type="button" class="filter-btn" data-filter-type="difficulty" data-filter-value="1">1星</button>
-          <button type="button" class="filter-btn" data-filter-type="difficulty" data-filter-value="2">2星</button>
-          <button type="button" class="filter-btn" data-filter-type="difficulty" data-filter-value="3">3星</button>
-          <button type="button" class="filter-btn" data-filter-type="difficulty" data-filter-value="4">4星</button>
-        </div>
-      </div>
-
-      <div class="filter-group">
-        <div style="font-size:12px; font-weight:600; margin-bottom:8px; color:var(--muted);">種類</div>
-        <div class="filter-options">
-          <button type="button" class="filter-btn active" data-filter-type="tag" data-filter-value="all">全部</button>
-          <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="WEB">WEB</button>
-          <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="CRYPTO">CRYPTO</button>
-          <!-- <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="MISC">MISC</button> -->
-          <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="Forensics">Forensics</button>
-          <button type="button" class="filter-btn " data-filter-type="tag" data-filter-value="SQL">SQL</button>
-        </div>
-      </div>
-
-      <div class="filter-group">
-        <div style="font-size:12px; font-weight:600; margin-bottom:8px; color:var(--muted);">狀態</div>
-        <div class="filter-options">
-          <button type="button" class="filter-btn active" data-filter-type="status" data-filter-value="all">全部</button>
-          <button type="button" class="filter-btn" data-filter-type="status" data-filter-value="completed">已完成</button>
-          <button type="button" class="filter-btn" data-filter-type="status" data-filter-value="incomplete">未完成</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="grid" id="questionsGrid">
-      <?php foreach ($questions as $key => $q): ?>
-        <?php $done = !empty($_SESSION['solved'][$key]); ?>
-        <?php $meta = $questionMeta[$key] ?? ['difficulty' => '未知', 'tags' => ['N/A']]; ?>
-        <?php $diffNum = preg_match('/(\d)星/', $meta['difficulty'], $m) ? $m[1] : '0'; ?>
-        <a class="card <?php echo $done ? 'completed' : ''; ?>" 
-           href="<?php echo htmlspecialchars($q['url'], ENT_QUOTES, 'UTF-8'); ?>" 
-           target="_blank" rel="noopener noreferrer"
-           data-question-key="<?php echo htmlspecialchars($key, ENT_QUOTES, 'UTF-8'); ?>"
-           data-difficulty="<?php echo $diffNum; ?>"
-           data-tags="<?php echo htmlspecialchars(implode(',', $meta['tags']), ENT_QUOTES, 'UTF-8'); ?>"
-           data-status="<?php echo $done ? 'completed' : 'incomplete'; ?>">
-          <div class="title"><?php echo htmlspecialchars($q['label'], ENT_QUOTES, 'UTF-8'); ?></div>
-          <!-- <div class="meta"><?php echo htmlspecialchars($q['url'], ENT_QUOTES, 'UTF-8'); ?></div> -->
-          <div class="difficulty"><?php echo htmlspecialchars($meta['difficulty'], ENT_QUOTES, 'UTF-8'); ?></div>
-          <div class="tags">
-            <?php foreach ($meta['tags'] as $tag): ?>
-              <span class="tag <?php echo strtolower($tag); ?>"><?php echo htmlspecialchars($tag, ENT_QUOTES, 'UTF-8'); ?></span>
-            <?php endforeach; ?>
+    </div>
+  <?php else: ?>
+    <main class="wrap">
+      <section class="hero">
+        <div class="hero-header">
+          <div>
+            <h1>mockCTF Home</h1>
+            <p>在這裡快速跳轉題目，並輸入你找到的 Flag 以記錄已完成題目。</p>
+            <div class="meter">
+              完成進度：<?php echo $solvedCount; ?> / <?php echo $totalCount; ?>
+            </div>
           </div>
-          <!-- <div class="badge <?php echo $done ? 'ok' : ''; ?>">
-            <?php echo $done ? '✓ 已完成' : '未完成'; ?>
-          </div> -->
-        </a>
-      <?php endforeach; ?>
-    </section>
-  </main>
+          
+          <form method="POST" style="display: block;">
+            <div class="user-badge">
+              👤 <?php echo htmlspecialchars($current_user, ENT_QUOTES, 'UTF-8'); ?>
+              <button type="submit" name="logout" class="logout-btn">登出</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="panel">
+        <form method="post" action="" id="flagForm">
+          <input type="text" name="flag" placeholder="輸入 flag{...}" autocomplete="off">
+          <input type="hidden" name="scroll_position" id="scrollPosition" value="0">
+          <button type="submit">驗證 Flag</button>
+        </form>
+        <?php if ($message !== ''): ?>
+          <div class="msg <?php echo htmlspecialchars($messageType, ENT_QUOTES, 'UTF-8'); ?>">
+            <?php echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?>
+          </div>
+        <?php endif; ?>
+      </section>
+
+      <section class="filter-section">
+        <div class="filter-title">🔍 篩選</div>
+        
+        <div class="filter-group">
+          <div style="font-size:12px; font-weight:600; margin-bottom:8px; color:var(--muted);">難度</div>
+          <div class="filter-options">
+            <button type="button" class="filter-btn active" data-filter-type="difficulty" data-filter-value="all">全部</button>
+            <button type="button" class="filter-btn" data-filter-type="difficulty" data-filter-value="1">1星</button>
+            <button type="button" class="filter-btn" data-filter-type="difficulty" data-filter-value="2">2星</button>
+            <button type="button" class="filter-btn" data-filter-type="difficulty" data-filter-value="3">3星</button>
+            <button type="button" class="filter-btn" data-filter-type="difficulty" data-filter-value="4">4星</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div style="font-size:12px; font-weight:600; margin-bottom:8px; color:var(--muted);">種類</div>
+          <div class="filter-options">
+            <button type="button" class="filter-btn active" data-filter-type="tag" data-filter-value="all">全部</button>
+            <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="WEB">WEB</button>
+            <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="CRYPTO">CRYPTO</button>
+            <!-- <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="MISC">MISC</button> -->
+            <button type="button" class="filter-btn" data-filter-type="tag" data-filter-value="Forensics">Forensics</button>
+            <button type="button" class="filter-btn " data-filter-type="tag" data-filter-value="SQL">SQL</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <div style="font-size:12px; font-weight:600; margin-bottom:8px; color:var(--muted);">狀態</div>
+          <div class="filter-options">
+            <button type="button" class="filter-btn active" data-filter-type="status" data-filter-value="all">全部</button>
+            <button type="button" class="filter-btn" data-filter-type="status" data-filter-value="completed">已完成</button>
+            <button type="button" class="filter-btn" data-filter-type="status" data-filter-value="incomplete">未完成</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid" id="questionsGrid">
+        <?php foreach ($questions as $key => $q): ?>
+          <?php $done = isset($solvedMap[$key]); ?>
+          <?php $meta = $questionMeta[$key] ?? ['difficulty' => '未知', 'tags' => ['N/A']]; ?>
+          <?php $diffNum = preg_match('/(\d)星/', $meta['difficulty'], $m) ? $m[1] : '0'; ?>
+          <a class="card <?php echo $done ? 'completed' : ''; ?>" 
+            href="<?php echo htmlspecialchars($q['url'], ENT_QUOTES, 'UTF-8'); ?>" 
+            target="_blank" rel="noopener noreferrer"
+            data-question-key="<?php echo htmlspecialchars($key, ENT_QUOTES, 'UTF-8'); ?>"
+            data-difficulty="<?php echo $diffNum; ?>"
+            data-tags="<?php echo htmlspecialchars(implode(',', $meta['tags']), ENT_QUOTES, 'UTF-8'); ?>"
+            data-status="<?php echo $done ? 'completed' : 'incomplete'; ?>">
+            <div class="title"><?php echo htmlspecialchars($q['label'], ENT_QUOTES, 'UTF-8'); ?></div>
+            <!-- <div class="meta"><?php echo htmlspecialchars($q['url'], ENT_QUOTES, 'UTF-8'); ?></div> -->
+            <div class="difficulty"><?php echo htmlspecialchars($meta['difficulty'], ENT_QUOTES, 'UTF-8'); ?></div>
+            <div class="tags">
+              <?php foreach ($meta['tags'] as $tag): ?>
+                <span class="tag <?php echo strtolower($tag); ?>"><?php echo htmlspecialchars($tag, ENT_QUOTES, 'UTF-8'); ?></span>
+              <?php endforeach; ?>
+            </div>
+            <!-- <div class="badge <?php echo $done ? 'ok' : ''; ?>">
+              <?php echo $done ? '✓ 已完成' : '未完成'; ?>
+            </div> -->
+          </a>
+        <?php endforeach; ?>
+      </section>
+    </main>
+  <?php endif; ?>
 
   <script>
     const flagForm = document.getElementById('flagForm');
